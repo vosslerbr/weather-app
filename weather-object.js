@@ -7,7 +7,7 @@ function init() {
 
   // Open a new connection, using the GET request on the URL endpoint
   // uses lat and long variables from above
-  mapRequest.open('GET', 'https://api.mapbox.com/geocoding/v5/mapbox.places/seattle.json?access_token=pk.eyJ1IjoiYnJhZHl2b3NzbGVyIiwiYSI6ImNqdjRncnFxeTA1ZzIzeW8ydW5tcWd5eTkifQ.PxozC03Ll04Dd-17nZwJ_g');
+  mapRequest.open('GET', 'https://api.mapbox.com/geocoding/v5/mapbox.places/sartell.json?access_token=pk.eyJ1IjoiYnJhZHl2b3NzbGVyIiwiYSI6ImNqdjRncnFxeTA1ZzIzeW8ydW5tcWd5eTkifQ.PxozC03Ll04Dd-17nZwJ_g');
   
   mapRequest.onload = function () {
     // Begin accessing JSON data here

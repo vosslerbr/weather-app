@@ -203,6 +203,10 @@ h2 {
 
 @media screen and (min-width: 768px) {
 
+  header {
+    text-align: left;
+  }
+
   #right-now {
     flex-direction: row;
   }

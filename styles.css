@@ -35,7 +35,7 @@ header {
 
 #right-now {
   background-image: linear-gradient(var(--blue-gradient));
-  padding: 3.5em 3em;
+  padding: 3.5em 1.5em;
   margin: 7em 0 0 0;
   border-radius: var(--normal-border-radius);
   box-shadow: var(--shadow);
@@ -90,7 +90,7 @@ header {
 
 #today-forecast {
   background-image: linear-gradient(var(--orange-gradient));
-  padding: 3.5em 3em;
+  padding: 3.5em 1.5em;
   margin: 3em 0 0 0;
   border-radius: var(--normal-border-radius);
   box-shadow: var(--shadow);
@@ -115,7 +115,7 @@ header {
 
 #hourly-forecast {
   background-image: linear-gradient(var(--purple-gradient));
-  padding: 3.5em 3em;
+  padding: 3.5em 1.5em;
   margin: 3em 0 0 0;
   border-radius: var(--normal-border-radius);
   box-shadow: var(--shadow);
@@ -162,7 +162,7 @@ header {
 
 #five-day-outlook {
   background-image: linear-gradient(var(--green-gradient));
-  padding: 3.5em 3em;
+  padding: 3.5em 1.5em;
   margin: 3em 0 3em 0;
   border-radius: var(--normal-border-radius);
   box-shadow: var(--shadow);
@@ -209,6 +209,7 @@ h2 {
 
   #right-now {
     flex-direction: row;
+    padding: 3.5em 3em;
   }
 
   #right-now-icon-temp {
@@ -232,6 +233,15 @@ h2 {
     margin-top: 7em;
     height: auto;
     text-align: left;
+    padding: 3.5em 3em;
+  }
+
+  #hourly-forecast {
+    padding: 3.5em 3em;
+  }
+
+  #five-day-outlook {
+    padding: 3.5em 3em;
   }
 
   h2 {

@@ -1,13 +1,19 @@
-addEventListener('load', init());
+addEventListener('load', userInput());
 
-function init() {
+function userInput() {
+  var input = window.prompt('Please enter a city name:');
+  init(input);
+}
 
+function init(promptInput) {
+
+  var userInputPlace = promptInput;
 
   var mapRequest = new XMLHttpRequest();
 
   // Open a new connection, using the GET request on the URL endpoint
   // uses lat and long variables from above
-  mapRequest.open('GET', 'https://api.mapbox.com/geocoding/v5/mapbox.places/sartell.json?access_token=pk.eyJ1IjoiYnJhZHl2b3NzbGVyIiwiYSI6ImNqdjRncnFxeTA1ZzIzeW8ydW5tcWd5eTkifQ.PxozC03Ll04Dd-17nZwJ_g');
+  mapRequest.open('GET', 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + userInputPlace + '.json?access_token=pk.eyJ1IjoiYnJhZHl2b3NzbGVyIiwiYSI6ImNqdjRncnFxeTA1ZzIzeW8ydW5tcWd5eTkifQ.PxozC03Ll04Dd-17nZwJ_g');
   
   mapRequest.onload = function () {
     // Begin accessing JSON data here
@@ -104,7 +110,7 @@ function init() {
   
   
     // Set values to elements on page
-    userLocation.innerHTML = lat + ', ' + long;
+    userLocation.innerHTML = userInputPlace;
   
     currentIcon.src = "climacons/" + data.currently.icon + ".svg"
     currentTemperature.innerHTML = Math.floor(data.currently.temperature) + '&deg;';

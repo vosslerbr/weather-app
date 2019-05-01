@@ -8,3 +8,5 @@ TO DO
 Add MapBox API to call lat and long based on user input for city or address
 Finish layout for iPad view (mostly with icons lining up in right-now)
 Figure out how to make hourly graph work
+
+uploaded to github!

@@ -1,0 +1,236 @@
+:root {
+  --blue-gradient: to right, #3B6FC1, #5DB6D6;
+  --orange-gradient: to right, #EB6824, #F09361;
+  --purple-gradient: to right, #7824EB, #BF61F0;
+  --green-gradient: to right, #3DA561, #48E08E;
+  --gray: #323232;
+  --white: #F7F7F7;
+  --arial: Arial, Helvetica, sans-serif;
+  --normal-border-radius: 15px;
+  --shadow: 0px 3px 6px rgba(0, 0, 0, 0.308);
+}
+
+body {
+  background-color: var(--gray);
+  color: var(--white);
+  font-family: var(--arial);
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  padding: 0 0.5em;
+}
+
+header {
+  background-color: var(--gray);
+  padding: 1.5em;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#user-location {
+  font-size: 1.5rem;
+}
+
+#right-now {
+  background-image: linear-gradient(var(--blue-gradient));
+  padding: 3.5em 3em;
+  margin: 7em 0 0 0;
+  border-radius: var(--normal-border-radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+#right-now-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#right-now-icon-temp {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+}
+
+#right-now-climacon {
+  width: 120px;
+  height: 120px;
+  padding: 0;
+  margin: 0;
+  margin: auto auto;
+}
+
+#right-now-climacon-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#currentTemp {
+  font-size: 4rem;
+  margin: auto auto;
+}
+
+#feels-like-and-wind {
+  margin: 1rem auto;
+  text-align: center;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+#uv-hum-dew-press {
+  margin: 1rem auto 0 auto;
+  text-align: center;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+#today-forecast {
+  background-image: linear-gradient(var(--orange-gradient));
+  padding: 3.5em 3em;
+  margin: 3em 0 0 0;
+  border-radius: var(--normal-border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  height: auto;
+}
+
+#todayHigh {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+#todayLow {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+#todaySummary {
+  font-weight: 500;
+  line-height: 1.25rem;
+}
+
+#hourly-forecast {
+  background-image: linear-gradient(var(--purple-gradient));
+  padding: 3.5em 3em;
+  margin: 3em 0 0 0;
+  border-radius: var(--normal-border-radius);
+  box-shadow: var(--shadow);
+  height: auto;
+}
+
+#hourly-graph {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+}
+
+.hourly-temp-and-icon {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.75rem 0.25rem 0.25rem 0.25rem;
+  height: 200px;
+  margin: auto;
+  margin-bottom: 1rem;
+  max-width: 40px;
+}
+
+.hourly-temp-and-icon-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.hourly-temp {
+  text-align: center;
+}
+
+.hourly-icon {
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+#five-day-outlook {
+  background-image: linear-gradient(var(--green-gradient));
+  padding: 3.5em 3em;
+  margin: 3em 0 3em 0;
+  border-radius: var(--normal-border-radius);
+  box-shadow: var(--shadow);
+  height: auto;
+}
+
+.day-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3rem;
+}
+
+.day-container:last-of-type {
+  margin: 0;
+}
+
+.day-name {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.daily-high-low {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.daily-icon {
+  margin-left: auto;
+  width: 7em;;
+}
+
+h2 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  #right-now {
+    flex-direction: row;
+  }
+
+  #right-now-icon-temp {
+    margin: 0;
+  }
+
+  #other-conditions-container {
+    margin-left: auto;
+  }
+
+  #feels-like-and-wind {
+    text-align: right;
+  }
+  
+  #uv-hum-dew-press {
+    text-align: right;
+    margin-bottom: 0;
+  }
+
+  #today-forecast {
+    margin-top: 7em;
+    height: auto;
+    text-align: left;
+  }
+
+  h2 {
+    text-align: left;
+  }
+}

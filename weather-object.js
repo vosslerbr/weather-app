@@ -64,6 +64,12 @@ function init(promptInput) {
     var lowToday = document.querySelector('#todayLow');
     var todaySummary = document.querySelector('#todaySummary');
   
+    var hour0TempIcon = document.querySelector('#hour0-container');
+    var hour1TempIcon = document.querySelector('#hour1-container');
+    var hour2TempIcon = document.querySelector('#hour2-container');
+    var hour3TempIcon = document.querySelector('#hour3-container');
+    var hour4TempIcon = document.querySelector('#hour4-container');
+    var hour5TempIcon = document.querySelector('#hour5-container');
   
     var hour0Temp = document.querySelector('#hour0-temp');
     var hour1Temp = document.querySelector('#hour1-temp');
@@ -147,11 +153,17 @@ function init(promptInput) {
       hours[i] = Math.floor(data.hourly.data[i].temperature);
       hourIcon[i] = data.hourly.data[i].icon;
       hourTimes[i] = new Date(data.hourly.data[i].time * 1000).toLocaleString("en-US", {timeZone: data.timezone, hour: 'numeric'});
-      
     }
   
   
     // Fills list items in HMTL with corresponding temps from array
+    hour0TempIcon.style.height = hours[0] * 5 + 'px';
+    hour1TempIcon.style.height = hours[1] * 5 + 'px';
+    hour2TempIcon.style.height = hours[2] * 5 + 'px';
+    hour3TempIcon.style.height = hours[3] * 5 + 'px';
+    hour4TempIcon.style.height = hours[4] * 5 + 'px';
+    hour5TempIcon.style.height = hours[5] * 5 + 'px';
+
     hour0Temp.innerHTML = hours[0];
     hour1Temp.innerHTML = hours[1];
     hour2Temp.innerHTML = hours[2];

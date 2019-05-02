@@ -5,7 +5,7 @@
   --green-gradient: to right, #3DA561, #48E08E;
   --gray: #323232;
   --white: #F7F7F7;
-  --arial: Arial, Helvetica, sans-serif;
+  --main-font: 'Hind Guntur', sans-serif;;
   --normal-border-radius: 15px;
   --shadow: 0px 3px 6px rgba(0, 0, 0, 0.308);
 }
@@ -13,7 +13,7 @@
 body {
   background-color: var(--gray);
   color: var(--white);
-  font-family: var(--arial);
+  font-family: var(--main-font);
   font-weight: bold;
   letter-spacing: 0.05em;
   padding: 0 0.5em;
@@ -103,6 +103,7 @@ header {
 #currentTemp {
   font-size: 4rem;
   margin: auto auto;
+  padding-top: 20px;
 }
 
 #feels-like-and-wind {
@@ -172,7 +173,7 @@ header {
   height: 15em;
   margin: auto;
   margin-bottom: 1rem;
-  max-width: 40px;
+  width: 40px;
 }
 
 .hourly-temp-and-icon-items {
@@ -190,6 +191,11 @@ header {
   margin: auto;
   width: 100%;
   height: auto;
+}
+
+.hourly-time {
+  margin: auto;
+  text-align: center;
 }
 
 #five-day-outlook {
@@ -223,7 +229,11 @@ header {
 
 .daily-icon {
   margin-left: auto;
-  width: 7em;;
+  width: 7em;
+}
+
+.daily-icon img {
+  width: 100%;
 }
 
 h2 {

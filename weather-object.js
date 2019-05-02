@@ -179,12 +179,12 @@ function init(promptInput) {
     hour4Icon.src = 'climacons/' + hourIcon[4] + '.svg';
     hour5Icon.src = 'climacons/' + hourIcon[5] + '.svg';
   
-    hour0Time.innerHTML = hourTimes[0];
-    hour1Time.innerHTML = hourTimes[1];
-    hour2Time.innerHTML = hourTimes[2];
-    hour3Time.innerHTML = hourTimes[3];
-    hour4Time.innerHTML = hourTimes[4];
-    hour5Time.innerHTML = hourTimes[5];
+    hour0Time.innerHTML = (hourTimes[0].replace(' AM', 'am').replace(' PM', 'pm'));
+    hour1Time.innerHTML = (hourTimes[1].replace(' AM', 'am').replace(' PM', 'pm'));
+    hour2Time.innerHTML = (hourTimes[2].replace(' AM', 'am').replace(' PM', 'pm'));
+    hour3Time.innerHTML = (hourTimes[3].replace(' AM', 'am').replace(' PM', 'pm'));
+    hour4Time.innerHTML = (hourTimes[4].replace(' AM', 'am').replace(' PM', 'pm'));
+    hour5Time.innerHTML = (hourTimes[5].replace(' AM', 'am').replace(' PM', 'pm'));
     /////////////////////////////////////////////
   
   

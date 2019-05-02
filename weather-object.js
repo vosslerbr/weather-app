@@ -5,6 +5,7 @@ function userInput() {
     alert("Please enter a valid city name!");
   } else {
       init(input);
+      
   }
 
 
@@ -12,7 +13,7 @@ function userInput() {
 
 function init(promptInput) {
 
-  var userInputPlace = promptInput;
+  var userInputPlace = promptInput.toUpperCase();
 
   var mapRequest = new XMLHttpRequest();
 
@@ -121,7 +122,7 @@ function init(promptInput) {
   
   
     // Set values to elements on page
-    userLocation.innerHTML = userInputPlace;
+    userLocation.innerHTML = mapObject.features['0'].text;
   
     currentIcon.src = "climacons/" + data.currently.icon + ".svg"
     currentTemperature.innerHTML = Math.floor(data.currently.temperature) + '&deg;';

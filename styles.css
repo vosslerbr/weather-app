@@ -83,7 +83,9 @@ header {
 #right-now-icon-temp {
   display: flex;
   flex-direction: row;
+  margin: auto;
   margin-bottom: 2rem;
+  max-width: 350px;
 }
 
 #right-now-climacon {
@@ -91,7 +93,8 @@ header {
   height: 120px;
   padding: 0;
   margin: 0;
-  margin: auto auto;
+  margin-right: 0.25em;
+  margin-left: auto;
 }
 
 #right-now-climacon-svg {
@@ -102,8 +105,9 @@ header {
 
 #currentTemp {
   font-size: 4rem;
-  margin: auto auto;
+  margin: auto;
   padding-top: 20px;
+  margin-left: 0.25em;
 }
 
 #feels-like-and-wind {
@@ -235,6 +239,7 @@ header {
 .daily-icon img {
   width: 100%;
 }
+
 
 h2 {
   font-size: 3rem;

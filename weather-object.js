@@ -1,8 +1,13 @@
-addEventListener('load', userInput());
-
 function userInput() {
-  var input = window.prompt('Please enter a city name:');
-  init(input);
+  var input = document.getElementById('user-input-field').value;
+
+  if (input === '') {
+    alert("Please enter a valid city name!");
+  } else {
+      init(input);
+  }
+
+
 }
 
 function init(promptInput) {

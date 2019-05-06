@@ -1,29 +1,29 @@
 :root {
-  --blue-gradient: to right, #3B6FC1, #5DB6D6;
-  --orange-gradient: to right, #EB6824, #F09361;
-  --purple-gradient: to right, #7824EB, #BF61F0;
-  --green-gradient: to right, #3DA561, #48E08E;
+  --blue-gradient: to bottom, #004B67, #007BA8;
+  --dark-blue: #01364A;
+  --medium-blue: #004B67;
+  --light-blue: #007BA8;
   --gray: #323232;
   --white: #F7F7F7;
-  --main-font: 'Hind Guntur', sans-serif;;
+  --main-font: 'Raleway', sans-serif;
   --normal-border-radius: 15px;
-  --shadow: 0px 3px 6px rgba(0, 0, 0, 0.308);
+  --header-shadow: 0px 5px 6px rgba(0, 0, 0, 0.308);
+  --box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.40);
 }
 
 body {
-  background-color: var(--gray);
+  background-color: var(--light-blue);
   color: var(--white);
   font-family: var(--main-font);
   font-weight: bold;
   letter-spacing: 0.05em;
-  padding: 0 0.5em;
 }
 
 header {
-  background-color: var(--gray);
+  background-color: var(--dark-blue);
   padding: 1.5em;
   text-align: center;
-  box-shadow: var(--shadow);
+  box-shadow: var(--header-shadow);
   position: fixed;
   top: 0;
   left: 0;
@@ -36,6 +36,7 @@ header {
   font-size: 1.5rem;
   justify-content: flex-start;
   margin-bottom: 1em;
+  display: none;
 }
 
 #user-input-container {
@@ -66,13 +67,16 @@ header {
 
 #right-now {
   background-image: linear-gradient(var(--blue-gradient));
-  padding: 3.5em 1.5em;
-  margin: 11em 0 0 0;
-  border-radius: var(--normal-border-radius);
-  box-shadow: var(--shadow);
+  padding: 7em 1.5em 3em 1.5em;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: var(--white);
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 95vh;
 }
 
 #right-now-container {
@@ -82,19 +86,15 @@ header {
 
 #right-now-icon-temp {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: auto;
   margin-bottom: 2rem;
-  max-width: 350px;
 }
 
 #right-now-climacon {
-  width: 120px;
-  height: 120px;
-  padding: 0;
-  margin: 0;
-  margin-right: 0.25em;
-  margin-left: auto;
+  width: 125px;
+  height: 125px;
+  margin: 2.5em auto 0 auto;
 }
 
 #right-now-climacon-svg {
@@ -104,32 +104,37 @@ header {
 }
 
 #currentTemp {
-  font-size: 4rem;
+  font-size: 10rem;
   margin: auto;
-  padding-top: 20px;
-  margin-left: 0.25em;
+  font-weight: 400;
 }
 
 #feels-like-and-wind {
-  margin: 1rem auto;
+  margin: auto;
   text-align: center;
   line-height: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 #uv-hum-dew-press {
   margin: 1rem auto 0 auto;
   text-align: center;
   line-height: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
+}
+
+main {
+  background-color: var(--white);
+  border-radius: 25px 25px 0 0 ;
+  padding: 0 8px;
 }
 
 #today-forecast {
-  background-image: linear-gradient(var(--orange-gradient));
+  background-color: var(--medium-blue);
   padding: 3.5em 1.5em;
-  margin: 3em 0 0 0;
+  margin: 4em 0 0 0;
   border-radius: var(--normal-border-radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--box-shadow);
   text-align: center;
   height: auto;
 }
@@ -137,24 +142,27 @@ header {
 #todayHigh {
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
+  font-weight: 400;
 }
 
 #todayLow {
   margin-bottom: 2rem;
   font-size: 1.5rem;
+  font-weight: 400;
 }
 
 #todaySummary {
   font-weight: 500;
   line-height: 1.25rem;
+  font-weight: 400;
 }
 
 #hourly-forecast {
-  background-image: linear-gradient(var(--purple-gradient));
+  background-color: var(--medium-blue);
   padding: 3.5em 1.5em;
-  margin: 3em 0 0 0;
+  margin: 4em 0 0 0;
   border-radius: var(--normal-border-radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--box-shadow);
   height: auto;
 }
 
@@ -168,7 +176,7 @@ header {
 }
 
 .hourly-temp-and-icon {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(247, 247, 247, 0.4);
   border-radius: 400px;
   display: flex;
   flex-direction: column;
@@ -200,14 +208,15 @@ header {
 .hourly-time {
   margin: auto;
   text-align: center;
+  font-weight: 400;
 }
 
 #five-day-outlook {
-  background-image: linear-gradient(var(--green-gradient));
+  background-color: var(--medium-blue);
   padding: 3.5em 1.5em;
-  margin: 3em 0 3em 0;
+  margin: 4em 0 4em 0;
   border-radius: var(--normal-border-radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--box-shadow);
   height: auto;
 }
 
@@ -224,11 +233,13 @@ header {
 .day-name {
   font-size: 2rem;
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .daily-high-low {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 
 .daily-icon {
@@ -276,9 +287,13 @@ h2 {
     margin-bottom: 0;
   }
 
+  main {
+    padding: 0 16px;
+  }
+
   #today-forecast {
-    margin-top: 11em;
     height: auto;
+    max-height: 330px;
     text-align: left;
     padding: 3.5em 3em;
   }

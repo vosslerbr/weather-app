@@ -125,7 +125,7 @@ function init(promptInput) {
     userLocation.innerHTML = mapObject.features['0'].text;
   
     currentIcon.src = "climacons/" + data.currently.icon + ".svg"
-    currentTemperature.innerHTML = Math.floor(data.currently.temperature) + '&deg;';
+    currentTemperature.innerHTML = Math.floor(data.currently.temperature);
     feelsLike.innerHTML = 'Feels like: ' + Math.floor(data.currently.apparentTemperature) + '&deg;';
     windSpeed.innerHTML = 'Wind: ' + Math.floor(data.currently.windSpeed) + 'mph';
   

@@ -2,27 +2,27 @@
   "name": "Weather App",
   "short_name": "Weather",
   "icons": [{
-    "src": "app-icons/icon128.png",
+    "src": "weather-app/app-icons/icon128.png",
       "sizes": "128x128",
       "type": "image/png"
     }, {
-      "src": "app-icons/icon144.png",
+      "src": "weather-app/app-icons/icon144.png",
       "sizes": "144x144",
       "type": "image/png"
     }, {
-      "src": "app-icons/icon152.png",
+      "src": "weather-app/app-icons/icon152.png",
       "sizes": "152x152",
       "type": "image/png"
     }, {
-      "src": "app-icons/icon192.png",
+      "src": "weather-app/app-icons/icon192.png",
       "sizes": "192x192",
       "type": "image/png"
     }, {
-      "src": "app-icons/icon256.png",
+      "src": "weather-app/app-icons/icon256.png",
       "sizes": "256x256",
       "type": "image/png"
     }, {
-      "src": "app-icons/icon512.png",
+      "src": "weather-app/app-icons/icon512.png",
       "sizes": "512x512",
       "type": "image/png"
     }],

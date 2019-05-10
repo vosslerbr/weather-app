@@ -32,16 +32,18 @@ header {
   align-items: center;
 }
 
-#user-location {
-  font-size: 1.5rem;
-  justify-content: flex-start;
-  margin-bottom: 1em;
-  display: none;
-}
+
 
 #user-input-container {
   display: flex;
   flex-direction: row;
+  width: auto;
+  align-items: center;
+}
+
+label {
+  width: auto;
+  margin-right: 0.5em;
 }
 
 #user-input-field, #submit {
@@ -49,7 +51,7 @@ header {
   border-radius: 400px;
   padding: 0.5em 1em;
   font-size: 1rem;
-  width: 65%;
+  width: 50%;
   box-shadow: var(--shadow);
 }
 
@@ -61,13 +63,13 @@ header {
 #submit {
   background-color: #5DB6D6;
   color: var(--gray);
-  width: 30%;
+  width: auto;
   margin-left: 0.5em;
 }
 
 #right-now {
   background-image: linear-gradient(var(--blue-gradient));
-  padding: 7em 1.5em 3em 1.5em;
+  padding: 11em 1.5em 3em 1.5em;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
@@ -76,12 +78,21 @@ header {
   color: var(--white);
   display: flex;
   flex-direction: column;
-  height: 95vh;
+  height: 98vh;
 }
 
 #right-now-container {
   display: flex;
   flex-direction: column;
+}
+
+#user-location {
+  font-size: 1.5rem;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 1em;
+  font-weight: 200;
+  opacity: 0.8;
 }
 
 #right-now-icon-temp {
@@ -94,7 +105,7 @@ header {
 #right-now-climacon {
   width: 125px;
   height: 125px;
-  margin: 2.5em auto 0 auto;
+  margin: 2.5em auto 3em auto;
 }
 
 #right-now-climacon-svg {
@@ -106,7 +117,7 @@ header {
 #currentTemp {
   font-size: 10rem;
   margin: auto;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 #feels-like-and-wind {
@@ -137,6 +148,7 @@ main {
   box-shadow: var(--box-shadow);
   text-align: center;
   height: auto;
+
 }
 
 #todayHigh {
@@ -164,6 +176,7 @@ main {
   border-radius: var(--normal-border-radius);
   box-shadow: var(--box-shadow);
   height: auto;
+
 }
 
 #hourly-graph {
@@ -223,7 +236,7 @@ main {
 .day-container {
   display: flex;
   flex-direction: row;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 .day-container:last-of-type {
@@ -255,7 +268,7 @@ main {
 h2 {
   font-size: 3rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 
@@ -265,27 +278,40 @@ h2 {
     text-align: left;
   }
 
+
   #right-now {
-    flex-direction: row;
-    padding: 3.5em 3em;
+    flex-direction: column;
+    padding: 13em 3em;
+  }
+
+  #user-location {
+    font-size: 2rem;
+    margin-bottom: 2em;
   }
 
   #right-now-icon-temp {
-    margin: 0;
+    margin: 0 auto 5em auto;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #currentTemp {
+    margin: 0 3rem;
+    font-size: 12rem;
+    align-self: flex-start;
+  }
+
+  #right-now-climacon {
+    width: 150px;
+    height: 150px;
+    margin: 2.5em 3em 3em 3em;
   }
 
   #other-conditions-container {
-    margin-left: auto;
-  }
-
-  #feels-like-and-wind {
-    text-align: right;
+    margin: auto;
   }
   
-  #uv-hum-dew-press {
-    text-align: right;
-    margin-bottom: 0;
-  }
+
 
   main {
     padding: 0 16px;
@@ -293,17 +319,19 @@ h2 {
 
   #today-forecast {
     height: auto;
-    max-height: 330px;
     text-align: left;
     padding: 3.5em 3em;
+    max-width: 960px;
   }
 
   #hourly-forecast {
     padding: 3.5em 3em;
+    max-width: 960px;
   }
 
   #five-day-outlook {
     padding: 3.5em 3em;
+    max-width: 960px;
   }
 
   h2 {

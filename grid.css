@@ -47,7 +47,6 @@ main {
     column-gap: 16px;
   }
 
-
   #today-forecast {
     grid-column: 3 / 11;
   }
@@ -57,6 +56,23 @@ main {
   }
 
   #five-day-outlook {
-    grid-column: 3 / 11;
+    grid-column: 3 /11;
+  }
+  
+}
+
+@media screen and (min-width: 1400px) {
+  
+
+  #today-forecast {
+    grid-column: 4 / 10;
+  }
+
+  #hourly-forecast {
+    grid-column: 4 / 10;
+  }
+
+  #five-day-outlook {
+    grid-column: 4 / 10;
   }
 }

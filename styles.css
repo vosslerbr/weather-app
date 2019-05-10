@@ -176,7 +176,7 @@ main {
 }
 
 .hourly-temp-and-icon {
-  background-color: rgba(247, 247, 247, 0.4);
+  background-color: rgba(247, 247, 247, 0.25);
   border-radius: 400px;
   display: flex;
   flex-direction: column;

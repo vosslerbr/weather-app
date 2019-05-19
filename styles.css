@@ -120,6 +120,10 @@ label {
   font-weight: 700;
 }
 
+#other-conditions-container {
+  margin: auto;
+}
+
 #feels-like-and-wind {
   margin: auto;
   text-align: center;
@@ -132,6 +136,11 @@ label {
   text-align: center;
   line-height: 1.5rem;
   font-weight: 400;
+}
+
+#UVindex {
+  width: fit-content;
+  border-radius: 400px;
 }
 
 main {

@@ -138,6 +138,12 @@ function init(promptInput) {
     highToday.innerHTML = 'High: ' + Math.floor(data.daily.data["0"].temperatureHigh) + '&deg;';
     lowToday.innerHTML = 'Low: ' + Math.floor(data.daily.data["0"].temperatureLow) + '&deg;';
     todaySummary.innerHTML = data.daily.data["0"].summary;
+
+
+    //////////// RIGHT NOW //////////////////
+    if (data.currently.uvIndex >= 7) {
+      UVindex.style.backgroundColor = "rgb(255, 85, 60)";
+    } 
   
     
   

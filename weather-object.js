@@ -159,14 +159,14 @@ function fillPage(darkSkyData) {
   hour5Temp.innerHTML = hours[5];
 
   // Sets src for hourly images
-  /*
+  
   hour0Icon.src = 'climacons/' + hourIcon[0] + '.svg';
   hour1Icon.src = 'climacons/' + hourIcon[1] + '.svg';
   hour2Icon.src = 'climacons/' + hourIcon[2] + '.svg';
   hour3Icon.src = 'climacons/' + hourIcon[3] + '.svg';
   hour4Icon.src = 'climacons/' + hourIcon[4] + '.svg';
   hour5Icon.src = 'climacons/' + hourIcon[5] + '.svg';
-  */
+  
   hour0Time.innerHTML = (hourTimes[0].replace(' AM', 'am').replace(' PM', 'pm'));
   hour1Time.innerHTML = (hourTimes[1].replace(' AM', 'am').replace(' PM', 'pm'));
   hour2Time.innerHTML = (hourTimes[2].replace(' AM', 'am').replace(' PM', 'pm'));

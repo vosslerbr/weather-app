@@ -90,29 +90,29 @@ function fillPage(darkSkyData) {
   const hour4Time = document.getElementById('hour4-time');
   const hour5Time = document.getElementById('hour5-time');
 
-  var day0Name = document.getElementById('day0-name');
-  var day1Name = document.getElementById('day1-name');
-  var day2Name = document.getElementById('day2-name');
-  var day3Name = document.getElementById('day3-name');
-  var day4Name = document.getElementById('day4-name');
+  const day0Name = document.getElementById('day0-name');
+  const day1Name = document.getElementById('day1-name');
+  const day2Name = document.getElementById('day2-name');
+  const day3Name = document.getElementById('day3-name');
+  const day4Name = document.getElementById('day4-name');
 
-  var day0High = document.getElementById('day0-high');
-  var day1High = document.getElementById('day1-high');
-  var day2High = document.getElementById('day2-high');
-  var day3High = document.getElementById('day3-high');
-  var day4High = document.getElementById('day4-high');
+  const day0High = document.getElementById('day0-high');
+  const day1High = document.getElementById('day1-high');
+  const day2High = document.getElementById('day2-high');
+  const day3High = document.getElementById('day3-high');
+  const day4High = document.getElementById('day4-high');
 
-  var day0Low = document.getElementById('day0-low');
-  var day1Low = document.getElementById('day1-low');
-  var day2Low = document.getElementById('day2-low');
-  var day3Low = document.getElementById('day3-low');
-  var day4Low = document.getElementById('day4-low');
+  const day0Low = document.getElementById('day0-low');
+  const day1Low = document.getElementById('day1-low');
+  const day2Low = document.getElementById('day2-low');
+  const day3Low = document.getElementById('day3-low');
+  const day4Low = document.getElementById('day4-low');
 
-  var day0Icon = document.getElementById('day0-icon');
-  var day1Icon = document.getElementById('day1-icon');
-  var day2Icon = document.getElementById('day2-icon');
-  var day3Icon = document.getElementById('day3-icon');
-  var day4Icon = document.getElementById('day4-icon');
+  const day0Icon = document.getElementById('day0-icon');
+  const day1Icon = document.getElementById('day1-icon');
+  const day2Icon = document.getElementById('day2-icon');
+  const day3Icon = document.getElementById('day3-icon');
+  const day4Icon = document.getElementById('day4-icon');
   
   
 
@@ -131,12 +131,12 @@ function fillPage(darkSkyData) {
 
   //////////// NEXT 6 HOURS TEMPS //////////////////
   // Create empty array to hold next 6 hours of temps
-  var hours = [];
-  var hourIcon = [];
-  var hourTimes = [];
+  const hours = [];
+  const hourIcon = [];
+  const hourTimes = [];
 
   // Loop through array adding temps for each hour
-  for (var i = 0; i < 6; i++) {
+  for (const i = 0; i < 6; i++) {
     // Rounds down to nearest degree, will always be up to date from API
     hours[i] = Math.round(darkSkyData.hourly.data[i].temperature);
     hourIcon[i] = darkSkyData.hourly.data[i].icon;
@@ -177,15 +177,15 @@ function fillPage(darkSkyData) {
 
   //////////// 5 DAY OUTLOOK //////////////////
   // Create empty array to hold next 6 hours of temps
-  var highs = [];
-  var lows = [];
-  var dayNumbers = [];
-  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  var dayNames = [];
-  var dayIcons = [];
+  const highs = [];
+  const lows = [];
+  const dayNumbers = [];
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const dayNames = [];
+  const dayIcons = [];
   
   // Loop through array adding temps for each hour
-  for (var i = 0; i < 5; i++) {
+  for (const i = 0; i < 5; i++) {
     // Rounds down to nearest degree, will always be up to date from API
     highs[i] = Math.round(darkSkyData.daily.data[i].temperatureHigh);
     lows[i] = Math.round(darkSkyData.daily.data[i].temperatureLow);
@@ -193,7 +193,7 @@ function fillPage(darkSkyData) {
     dayIcons[i] = darkSkyData.daily.data[i].icon;
   }    
   
-  for (var i = 0; i < dayNumbers.length; i++) {
+  for (const i = 0; i < dayNumbers.length; i++) {
     dayNames[i] = days[dayNumbers[i]];
   }
 

@@ -87,6 +87,7 @@ function fillPage(darkSkyData) {
 
   // Fill constants with nodes from DOM
   const currentTemp = document.getElementById('current-temp');
+  const currentIcon = document.querySelector('#right-now-climacon-svg');
   const feelsLike = document.getElementById('feels-like-data');
   const windSpeed = document.getElementById('wind-speed-data');
   const uvIndex = document.getElementById('uv-index-data');
@@ -154,6 +155,7 @@ function fillPage(darkSkyData) {
 
   // Fill data to DOM nodes
   currentTemp.textContent = Math.round(darkSkyData.currently.temperature);
+  currentIcon.src = "climacons/" + darkSkyData.currently.icon + ".svg"
   feelsLike.textContent = Math.round(darkSkyData.currently.apparentTemperature);
   windSpeed.textContent = Math.round(darkSkyData.currently.windSpeed);
   uvIndex.textContent = darkSkyData.currently.uvIndex;

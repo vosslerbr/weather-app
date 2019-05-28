@@ -1,14 +1,49 @@
 function getUserLocation() {
-  if (navigator.geolocation) {
+  if (navigator.geolocation) { // If browser has geolocation enabled
     navigator.geolocation.getCurrentPosition(function (position) {
-      let userLat = position.coords.latitude.toFixed(4);
-      let userLong = position.coords.longitude.toFixed(4);
-      fetchMapApi(userLat, userLong);
-      fetchApi(userLat, userLong);
+      let userLat = position.coords.latitude.toFixed(4); // Set userLat to object values, round to 4 decimals
+      let userLong = position.coords.longitude.toFixed(4); // Set userLat to object values, round to 4 decimals
+      fetchMapApi(userLat, userLong); // Pass userLat and user Long to MapApi to get MapBox object
+      fetchApi(userLat, userLong); // Pass userLat and user Long to DarkSky to get weather object
     })
   } else {
     console.log('Geolocation not supported by this browser.');
   }
+}
+
+// User can enter a city name into the search field to find city
+function userInput() {
+  // Set city to search bar from HTML
+  let city = document.getElementById('user-input-field').value.toLowerCase();
+  // Turn search bar value all lowercase and replace spaces with dashes
+  city = city.replace(/\s+/g, '-');
+  // Pass value to function to get MapBox object from city name
+  fetchMapApiForCity(city);
+}
+
+
+// Use the MapBox API to fetch the user's latitude and longitude from city name input
+async function fetchMapApiForCity(userInputCity) {
+  // API Key and URL
+  const apiKey =
+    ".json?types=place&access_token=pk.eyJ1IjoiYnJhZHl2b3NzbGVyIiwiYSI6ImNqdjRncnFxeTA1ZzIzeW8ydW5tcWd5eTkifQ.PxozC03Ll04Dd-17nZwJ_g";
+  const apiUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
+
+  //Fetch API
+  const response = await fetch(apiUrl + userInputCity + apiKey);
+  const data = await response.json();
+
+  // Set latitude and longitude of user based on return object for city
+  const cityLat = data.features['0'].center[1];
+  const cityLong = data.features['0'].center[0];
+  
+  // Set userCityName to correct city
+  const userCityName = document.getElementById('user-location');
+  userCityName.innerHTML = data.features['0'].text;
+
+  console.log(data);
+  // Pass cityLat and cityLong to DarkSky API
+  fetchApi(cityLat, cityLong);
 }
 
 // Use the MapBox API to fetch the user's city from latitude and longitude
@@ -47,9 +82,10 @@ async function fetchApi(lat, long) {
   fillPage(data);
 }
 
+// Fill all elements on the page with correct data from DarkSky object
 function fillPage(darkSkyData) {
 
-  // Fill constiables with nodes from DOM
+  // Fill constants with nodes from DOM
   const currentTemp = document.getElementById('current-temp');
   const feelsLike = document.getElementById('feels-like-data');
   const windSpeed = document.getElementById('wind-speed-data');
@@ -121,7 +157,7 @@ function fillPage(darkSkyData) {
   feelsLike.textContent = Math.round(darkSkyData.currently.apparentTemperature);
   windSpeed.textContent = Math.round(darkSkyData.currently.windSpeed);
   uvIndex.textContent = darkSkyData.currently.uvIndex;
-  humidity.textContent = darkSkyData.currently.humidity * 100 + '%';
+  humidity.textContent = Math.round(darkSkyData.currently.humidity * 100) + '%';
   dewPoint.textContent = Math.round(darkSkyData.currently.dewPoint);
   pressure.textContent = Math.round(darkSkyData.currently.pressure);
 
@@ -136,7 +172,7 @@ function fillPage(darkSkyData) {
   const hourTimes = [];
 
   // Loop through array adding temps for each hour
-  for (const i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     // Rounds down to nearest degree, will always be up to date from API
     hours[i] = Math.round(darkSkyData.hourly.data[i].temperature);
     hourIcon[i] = darkSkyData.hourly.data[i].icon;
@@ -185,7 +221,7 @@ function fillPage(darkSkyData) {
   const dayIcons = [];
   
   // Loop through array adding temps for each hour
-  for (const i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     // Rounds down to nearest degree, will always be up to date from API
     highs[i] = Math.round(darkSkyData.daily.data[i].temperatureHigh);
     lows[i] = Math.round(darkSkyData.daily.data[i].temperatureLow);
@@ -193,7 +229,7 @@ function fillPage(darkSkyData) {
     dayIcons[i] = darkSkyData.daily.data[i].icon;
   }    
   
-  for (const i = 0; i < dayNumbers.length; i++) {
+  for (let i = 0; i < dayNumbers.length; i++) {
     dayNames[i] = days[dayNumbers[i]];
   }
 

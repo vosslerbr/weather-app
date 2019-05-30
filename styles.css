@@ -21,7 +21,7 @@ body {
 
 header {
   background-color: var(--dark-blue);
-  padding: 1.5em;
+  padding: 1em;
   text-align: center;
   box-shadow: var(--header-shadow);
   position: fixed;
@@ -78,7 +78,7 @@ label {
   color: var(--white);
   display: flex;
   flex-direction: column;
-  height: 98vh;
+  height: 100vh;
 }
 
 #right-now-container {
@@ -114,7 +114,7 @@ label {
   height: auto;
 }
 
-#currentTemp {
+#current-temp {
   font-size: 10rem;
   margin: auto;
   font-weight: 700;
@@ -160,13 +160,13 @@ main {
 
 }
 
-#todayHigh {
+#today-high {
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
   font-weight: 400;
 }
 
-#todayLow {
+#today-low {
   margin-bottom: 2rem;
   font-size: 1.5rem;
   font-weight: 400;
@@ -290,7 +290,7 @@ h2 {
 
   #right-now {
     flex-direction: column;
-    padding: 13em 3em;
+    padding: 8em 3em;
   }
 
   #user-location {
@@ -299,21 +299,21 @@ h2 {
   }
 
   #right-now-icon-temp {
-    margin: 0 auto 5em auto;
+    margin: 0 auto 3em auto;
     flex-direction: row;
     align-items: center;
   }
 
-  #currentTemp {
-    margin: 0 3rem;
-    font-size: 12rem;
+  #current-temp {
+    margin: 0 1rem;
+    font-size: 10rem;
     align-self: flex-start;
   }
 
   #right-now-climacon {
-    width: 150px;
+    width: 200px;
     height: 150px;
-    margin: 2.5em 3em 3em 3em;
+    margin: 0.8em 3em 3em 3em;
   }
 
   #other-conditions-container {

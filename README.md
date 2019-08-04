@@ -12,5 +12,8 @@ DarkSky takes the user's latitude and longitude and returns the weather object. 
 
 This is my first time using async/await functions, but it seemed to work out well!
 
-Future plans include the addition of autocomplete to the search bar
-
+Future plans include:
+-- Addition of auto-complete to search bar
+-- Ability to press 'enter' on keyboard to send search query
+-- Addition of wind direction data
+-- Further tweaking of layout and colors

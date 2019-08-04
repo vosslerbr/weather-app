@@ -12,146 +12,96 @@
   <link rel="apple-touch-icon" href="app-icons/icon152.png">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="grid.css">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700,900" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="styles.css">
   <title>Weather Application</title>
 </head>
 
-<body>
+<body id="body">
 
   <header>
-    <div id="user-input-container">
-      <label for="user-input-field">Enter City:</label>
-      <input type="text" name="userInputField" id="user-input-field">
-      <input type="submit" value="Submit" onclick="userInput()" id="submit">
-    </div>
+      <input type="text" name="userInputField" id="user-input-field" placeholder="Search...">
+      <button type="submit" onclick="userInput()" id="submit">Submit</button>
   </header>
 
-<div id="right-now">
-  <h1 id="user-location">--</h1>
-  <div id="right-now-container">
-
-    <div id="right-now-icon-temp">
-      <p id="current-temp">--</p>
-      <div id="right-now-climacon">
-        <img src="" alt="" id="right-now-climacon-svg">
-      </div>
+  <div id="right-now">
+    <h1 id="user-location">--</h1>
+    <p id="current-temp">--</p>
+    <div id="right-now-climacon">
+      <img src="" alt="" id="right-now-climacon-svg">
     </div>
   </div>
 
-  <div id="other-conditions-container">
-    <div id="feels-like-and-wind">
-      <p id="feels-like">Feels like: <span id="feels-like-data">--</span></p>
-      <p id="wind-speed">Wind: <span id="wind-speed-data">--</span></p>
+  <div id="other-conditions">
+    <div class="other-conditions-section">
+      <p id="feels-like">Feels like:</p>
+      <p id="feels-like-data">--</p>
     </div>
+    <div class="other-conditions-section">
+      <p id="humidity">Humidity:</p>
+      <p id="humidity-data">--</p>
+    </div>
+    <div class="other-conditions-section">
+      <p id="dew-point">Dew Point:</p>
+      <p id="dew-point-data">--</p>
+    </div>
+    <div class="other-conditions-section">
+      <p id="wind-speed">Wind:</p>
+      <p id="wind-speed-data">--</p>
+    </div>
+    <div class="other-conditions-section">
+      <p id="wind-bearing">Wind Direction:</p>
+      <p id="wind-bearing-data">--</p>
+    </div>
+  </div> 
 
-    <div id="uv-hum-dew-press">
-      <p id="uv-index">UV Index: <span id="uv-index-data">--</span></p>
-      <p id="humidity">Humidity: <span id="humidity-data">--</span></p>
-      <p id="dew-point">Dew Point: <span id="dew-point-data">--</span></p>
-      <p id="pressure">Pressure: <span id="pressure-data">--</span></p>
-    </div> 
-  </div>  
 
-</div>
-
-<main>
-  <div id="today-forecast">
-    <h2>Today</h2>
-    <p id="today-high">High: <span id="today-high-data">--</span></p>
-    <p id="today-low">Low: <span id="today-low-data">--</span></p>
-    <p id="today-summary">--</p>
-  </div>
 
   <div id="hourly-forecast">
-    <h2>Hourly</h2>
-
-    <ul id="hourly-graph">
-
-      <li>
-        <ul>
-          <li class="hourly-temp-and-icon" id="hour0-container">
-            <ul class="hourly-temp-and-icon-items">
-              <li id="hour0-temp" class="hourly-temp"></li>
-              <li><img src="climacons/clear-day.svg" alt="" id="hour0-icon" class="hourly-icon"></li>
-            </ul>
-          </li>
-          <li id="hour0-time" class="hourly-time"></li>
-        </ul>
-      </li>
-
-      <li>
-        <ul>
-          
-          <li class="hourly-temp-and-icon" id="hour1-container">
-            <ul class="hourly-temp-and-icon-items">
-              <li id="hour1-temp" class="hourly-temp"></li>
-              <li><img src="climacons/clear-day.svg" alt="" id="hour1-icon" class="hourly-icon"></li>
-              
-            </ul>
-          </li>
-          <li id="hour1-time" class="hourly-time"></li>
-        </ul>
-      </li>
-
-      <li>
-        <ul>
-          
-          <li class="hourly-temp-and-icon" id="hour2-container">
-            <ul class="hourly-temp-and-icon-items">
-              <li id="hour2-temp" class="hourly-temp"></li>
-              <li><img src="climacons/clear-day.svg" alt="" id="hour2-icon" class="hourly-icon"></li>
-              
-            </ul>
-          </li>
-          <li id="hour2-time" class="hourly-time"></li>
-        </ul>
-      </li>
-
-      <li>
-        <ul>
-          
-          <li class="hourly-temp-and-icon" id="hour3-container">
-            <ul class="hourly-temp-and-icon-items">
-              <li id="hour3-temp" class="hourly-temp"></li>
-              <li><img src="climacons/clear-day.svg" alt="" id="hour3-icon" class="hourly-icon"></li>
-              
-            </ul>
-          </li>
-          <li id="hour3-time" class="hourly-time"></li>
-        </ul>
-      </li>
-
-      <li>
-        <ul>
-          
-          <li class="hourly-temp-and-icon" id="hour4-container">
-            <ul class="hourly-temp-and-icon-items">
-              <li id="hour4-temp" class="hourly-temp"></li>
-              <li><img src="climacons/clear-day.svg" alt="" id="hour4-icon" class="hourly-icon"></li>
-              
-            </ul>
-          </li>
-          <li id="hour4-time" class="hourly-time"></li>
-        </ul>
-      </li>
-
-      <li>
-        <ul>
-          
-          <li class="hourly-temp-and-icon" id="hour5-container">
-            <ul class="hourly-temp-and-icon-items">
-              <li id="hour5-temp" class="hourly-temp"></li>
-              <li><img src="climacons/clear-day.svg" alt="" id="hour5-icon" class="hourly-icon"></li>
-              
-            </ul>
-          </li>
-          <li id="hour5-time" class="hourly-time"></li>
-        </ul>
-      </li>
-
-    </ul>
+    <h2>Next 6 Hours</h2>
+    <div class="hour-section">
+      <div>
+        <p id="hour0">12pm</p>
+        <p id="hour0-condition">Cloudy</p>
+      </div>
+      <p id="hour0-temp">72</p>
+    </div>
+    <div class="hour-section">
+      <div>
+        <p id="hour1">--</p>
+        <p id="hour1-condition">--</p>
+      </div>
+      <p id="hour1-temp">72</p>
+    </div>
+    <div class="hour-section">
+      <div>
+        <p id="hour2">--</p>
+        <p id="hour2-condition">--</p>
+      </div>
+      <p id="hour2-temp">72</p>
+    </div>
+    <div class="hour-section">
+      <div>
+        <p id="hour3">--</p>
+        <p id="hour3-condition">--</p>
+      </div>
+      <p id="hour3-temp">72</p>
+    </div>
+    <div class="hour-section">
+      <div>
+        <p id="hour4">--</p>
+        <p id="hour4-condition">--</p>
+      </div>
+      <p id="hour4-temp">72</p>
+    </div>
+    <div class="hour-section">
+      <div>
+        <p id="hour5">--</p>
+        <p id="hour5-condition">--</p>
+      </div>
+      <p id="hour5-temp">72</p>
+    </div>
+    
   </div>
 
   <div id="five-day-outlook">
@@ -160,7 +110,7 @@
 
     <div class="day-container">
       <div class="day-name-and-temps">
-        <h3 id="day0-name" class="day-name">Monday</h3>
+        <p id="day0-name" class="day-name">Monday</p>
         <ul>
           <li id="day0-high" class="daily-high-low">--</li>
           <li id="day0-low" class="daily-high-low">--</li>
@@ -173,7 +123,7 @@
 
     <div class="day-container">
       <div class="day-name-and-temps">
-        <h3 id="day1-name" class="day-name">Monday</h3>
+        <p id="day1-name" class="day-name">Monday</p>
         <ul>
           <li id="day1-high" class="daily-high-low">--</li>
           <li id="day1-low" class="daily-high-low">--</li>
@@ -186,7 +136,7 @@
 
     <div class="day-container">
       <div class="day-name-and-temps">
-        <h3 id="day2-name" class="day-name">Monday</h3>
+        <p id="day2-name" class="day-name">Monday</p>
         <ul>
           <li id="day2-high" class="daily-high-low">--</li>
           <li id="day2-low" class="daily-high-low">--</li>
@@ -199,7 +149,7 @@
 
     <div class="day-container">
       <div class="day-name-and-temps">
-        <h3 id="day3-name" class="day-name">Monday</h3>
+        <p id="day3-name" class="day-name">Monday</p>
         <ul>
           <li id="day3-high" class="daily-high-low">--</li>
           <li id="day3-low" class="daily-high-low">--</li>
@@ -212,7 +162,7 @@
 
     <div class="day-container">
       <div class="day-name-and-temps">
-        <h3 id="day4-name" class="day-name">Monday</h3>
+        <p id="day4-name" class="day-name">Monday</p>
         <ul>
           <li id="day4-high" class="daily-high-low">--</li>
           <li id="day4-low" class="daily-high-low">--</li>
@@ -224,8 +174,11 @@
     </div>
 
   </div>
-    
-</main>
+
+  <footer>
+    <p>&copy;2019 Brady Vossler 🤠</p>
+  </footer>
+  
 
   <script>
     if ('serviceWorker' in navigator) {

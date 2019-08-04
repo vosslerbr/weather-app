@@ -86,25 +86,14 @@ async function fetchApi(lat, long) {
 function fillPage(darkSkyData) {
 
   // Fill constants with nodes from DOM
+  const body = document.getElementById('body');
+
   const currentTemp = document.getElementById('current-temp');
   const currentIcon = document.querySelector('#right-now-climacon-svg');
   const feelsLike = document.getElementById('feels-like-data');
   const windSpeed = document.getElementById('wind-speed-data');
-  const uvIndex = document.getElementById('uv-index-data');
   const humidity = document.getElementById('humidity-data');
   const dewPoint = document.getElementById('dew-point-data');
-  const pressure = document.getElementById('pressure-data');
-
-  const todayHigh = document.getElementById('today-high-data');
-  const todayLow = document.getElementById('today-low-data');
-  const todaySummary = document.getElementById('today-summary');
-
-  const hour0TempIcon = document.getElementById('hour0-container');
-  const hour1TempIcon = document.getElementById('hour1-container');
-  const hour2TempIcon = document.getElementById('hour2-container');
-  const hour3TempIcon = document.getElementById('hour3-container');
-  const hour4TempIcon = document.getElementById('hour4-container');
-  const hour5TempIcon = document.getElementById('hour5-container');
 
   const hour0Temp = document.getElementById('hour0-temp');
   const hour1Temp = document.getElementById('hour1-temp');
@@ -113,19 +102,19 @@ function fillPage(darkSkyData) {
   const hour4Temp = document.getElementById('hour4-temp');
   const hour5Temp = document.getElementById('hour5-temp');
 
-  const hour0Icon = document.getElementById('hour0-icon');
-  const hour1Icon = document.getElementById('hour1-icon');
-  const hour2Icon = document.getElementById('hour2-icon');
-  const hour3Icon = document.getElementById('hour3-icon');
-  const hour4Icon = document.getElementById('hour4-icon');
-  const hour5Icon = document.getElementById('hour5-icon');
+  const hour0Time = document.getElementById('hour0');
+  const hour1Time = document.getElementById('hour1');
+  const hour2Time = document.getElementById('hour2');
+  const hour3Time = document.getElementById('hour3');
+  const hour4Time = document.getElementById('hour4');
+  const hour5Time = document.getElementById('hour5');
 
-  const hour0Time = document.getElementById('hour0-time');
-  const hour1Time = document.getElementById('hour1-time');
-  const hour2Time = document.getElementById('hour2-time');
-  const hour3Time = document.getElementById('hour3-time');
-  const hour4Time = document.getElementById('hour4-time');
-  const hour5Time = document.getElementById('hour5-time');
+  const hour0condition = document.getElementById('hour0-condition');
+  const hour1condition = document.getElementById('hour1-condition');
+  const hour2condition = document.getElementById('hour2-condition');
+  const hour3condition = document.getElementById('hour3-condition');
+  const hour4condition = document.getElementById('hour4-condition');
+  const hour5condition = document.getElementById('hour5-condition');
 
   const day0Name = document.getElementById('day0-name');
   const day1Name = document.getElementById('day1-name');
@@ -152,42 +141,36 @@ function fillPage(darkSkyData) {
   const day4Icon = document.getElementById('day4-icon');
   
   
+  // Set body background gradient
+  if (darkSkyData.currently.icon === 'clear-day' || darkSkyData.currently.icon === 'partly-cloudy-day') {
+    body.className = 'clear';
+  } else if (darkSkyData.currently.icon === 'clear-night' || darkSkyData.currently.icon === 'partly-cloudy-night') {
+    body.className = 'night';
+  } else {
+    body.className = 'cloudy-or-rainy';
+  }
 
   // Fill data to DOM nodes
   currentTemp.textContent = Math.round(darkSkyData.currently.temperature);
   currentIcon.src = "climacons/" + darkSkyData.currently.icon + ".svg"
   feelsLike.textContent = Math.round(darkSkyData.currently.apparentTemperature);
-  windSpeed.textContent = Math.round(darkSkyData.currently.windSpeed);
-  uvIndex.textContent = darkSkyData.currently.uvIndex;
+  windSpeed.textContent = Math.round(darkSkyData.currently.windSpeed) + ' mph';
   humidity.textContent = Math.round(darkSkyData.currently.humidity * 100) + '%';
   dewPoint.textContent = Math.round(darkSkyData.currently.dewPoint);
-  pressure.textContent = Math.round(darkSkyData.currently.pressure);
-
-  todayHigh.textContent = Math.round(darkSkyData.daily.data['0'].temperatureHigh);
-  todayLow.textContent = Math.round(darkSkyData.daily.data['0'].temperatureLow);
-  todaySummary.textContent = darkSkyData.daily.data['0'].summary;
 
   //////////// NEXT 6 HOURS TEMPS //////////////////
   // Create empty array to hold next 6 hours of temps
   const hours = [];
-  const hourIcon = [];
   const hourTimes = [];
+  const hourConditions = [];
 
   // Loop through array adding temps for each hour
   for (let i = 0; i < 6; i++) {
     // Rounds down to nearest degree, will always be up to date from API
     hours[i] = Math.round(darkSkyData.hourly.data[i].temperature);
-    hourIcon[i] = darkSkyData.hourly.data[i].icon;
     hourTimes[i] = new Date(darkSkyData.hourly.data[i].time * 1000).toLocaleString("en-US", {timeZone: darkSkyData.timezone, hour: 'numeric'});
+    hourConditions[i] = darkSkyData.hourly.data[i].summary;
   }
-
-  // Fills list items in HMTL with corresponding temps from array
-  hour0TempIcon.style.height = hours[0] * 5 + 'px';
-  hour1TempIcon.style.height = hours[1] * 5 + 'px';
-  hour2TempIcon.style.height = hours[2] * 5 + 'px';
-  hour3TempIcon.style.height = hours[3] * 5 + 'px';
-  hour4TempIcon.style.height = hours[4] * 5 + 'px';
-  hour5TempIcon.style.height = hours[5] * 5 + 'px';
 
   hour0Temp.innerHTML = hours[0];
   hour1Temp.innerHTML = hours[1];
@@ -196,15 +179,13 @@ function fillPage(darkSkyData) {
   hour4Temp.innerHTML = hours[4];
   hour5Temp.innerHTML = hours[5];
 
-  // Sets src for hourly images
-  
-  hour0Icon.src = 'climacons/' + hourIcon[0] + '.svg';
-  hour1Icon.src = 'climacons/' + hourIcon[1] + '.svg';
-  hour2Icon.src = 'climacons/' + hourIcon[2] + '.svg';
-  hour3Icon.src = 'climacons/' + hourIcon[3] + '.svg';
-  hour4Icon.src = 'climacons/' + hourIcon[4] + '.svg';
-  hour5Icon.src = 'climacons/' + hourIcon[5] + '.svg';
-  
+  hour0condition.innerHTML = hourConditions[0];
+  hour1condition.innerHTML = hourConditions[1];
+  hour2condition.innerHTML = hourConditions[2];
+  hour3condition.innerHTML = hourConditions[3];
+  hour4condition.innerHTML = hourConditions[4];
+  hour5condition.innerHTML = hourConditions[5];
+
   hour0Time.innerHTML = (hourTimes[0].replace(' AM', 'am').replace(' PM', 'pm'));
   hour1Time.innerHTML = (hourTimes[1].replace(' AM', 'am').replace(' PM', 'pm'));
   hour2Time.innerHTML = (hourTimes[2].replace(' AM', 'am').replace(' PM', 'pm'));

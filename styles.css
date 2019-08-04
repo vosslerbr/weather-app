@@ -1,349 +1,187 @@
 :root {
-  --blue-gradient: to bottom, #004B67, #007BA8;
+  --blue-gradient: to bottom, #93c1ff, #5E80AF;
   --dark-blue: #01364A;
   --medium-blue: #004B67;
   --light-blue: #007BA8;
   --gray: #323232;
   --white: #F7F7F7;
-  --main-font: 'Raleway', sans-serif;
+  --main-font: 'Work Sans', sans-serif;
   --normal-border-radius: 15px;
   --header-shadow: 0px 5px 6px rgba(0, 0, 0, 0.308);
   --box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.40);
 }
 
+.cloudy-or-rainy {
+  background-image: linear-gradient(45deg, rgb(192, 192, 192), #989898)
+}
+
+.clear {
+  background-image: linear-gradient(45deg, #8BBBFC, #708FBA)
+}
+
+.night {
+  background-image: linear-gradient(45deg, #484B5A, #242533)
+}
+
 body {
-  background-color: var(--light-blue);
   color: var(--white);
   font-family: var(--main-font);
-  font-weight: bold;
   letter-spacing: 0.05em;
+  padding: 2rem 1rem 0 1rem;
 }
 
 header {
-  background-color: var(--dark-blue);
-  padding: 1em;
-  text-align: center;
-  box-shadow: var(--header-shadow);
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-
-#user-input-container {
+  outline: 1px solid yellow;
+  margin: auto;
   display: flex;
   flex-direction: row;
-  width: auto;
-  align-items: center;
+  width: 100%;
+  max-width: 536px;
+  justify-content: space-between;
 }
 
-label {
-  width: auto;
-  margin-right: 0.5em;
-}
-
-#user-input-field, #submit {
+header input {
+  width: 80%;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 400px;
-  padding: 0.5em 1em;
-  font-size: 1rem;
-  width: 50%;
-  box-shadow: var(--shadow);
 }
 
-#submit:hover {
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.623);
-  color: var(--white);
-}
-
-#submit {
-  background-color: #5DB6D6;
-  color: var(--gray);
+header button {
   width: auto;
-  margin-left: 0.5em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 400px;
+  padding: 0.75rem 1.5rem;
+  background-color: #F7F7F7;
 }
 
 #right-now {
-  background-image: linear-gradient(var(--blue-gradient));
-  padding: 11em 1.5em 3em 1.5em;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  color: var(--white);
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-#right-now-container {
-  display: flex;
-  flex-direction: column;
-}
-
-#user-location {
-  font-size: 1.5rem;
-  text-align: center;
-  justify-content: center;
-  margin-bottom: 1em;
-  font-weight: 200;
-  opacity: 0.8;
-}
-
-#right-now-icon-temp {
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-bottom: 2rem;
-}
-
-#right-now-climacon {
-  width: 125px;
-  height: 125px;
-  margin: 2.5em auto 3em auto;
-}
-
-#right-now-climacon-svg {
-  display: block;
   width: 100%;
-  height: auto;
-}
-
-#current-temp {
-  font-size: 10rem;
-  margin: auto;
-  font-weight: 700;
-}
-
-#other-conditions-container {
-  margin: auto;
-}
-
-#feels-like-and-wind {
-  margin: auto;
+  max-width: 536px;
+  justify-content: center;
+  align-content: center;
   text-align: center;
-  line-height: 1.5rem;
-  font-weight: 400;
 }
 
-#uv-hum-dew-press {
-  margin: 1rem auto 0 auto;
-  text-align: center;
-  line-height: 1.5rem;
-  font-weight: 400;
+#right-now h1 {
+  font-size: 2.5rem;
+  font-weight: lighter;
+  margin-top: 4rem;
 }
 
-#UVindex {
-  width: fit-content;
-  border-radius: 400px;
+#right-now p {
+  font-size: 6rem;
+  margin-top: 1.5rem;
 }
 
-main {
-  background-color: var(--white);
-  border-radius: 25px 25px 0 0 ;
-  padding: 0 8px;
+#right-now div {
+  outline: 1px solid yellow;
+  width: 118px;
+  margin: 1.5rem auto 0 auto;
 }
 
-#today-forecast {
-  background-color: var(--medium-blue);
-  padding: 3.5em 1.5em;
-  margin: 4em 0 0 0;
-  border-radius: var(--normal-border-radius);
-  box-shadow: var(--box-shadow);
-  text-align: center;
-  height: auto;
-
+#other-conditions {
+  margin: 6rem auto 0 auto;
+  width: 100%;
+  max-width: 536px;
 }
 
-#today-high {
-  margin-bottom: 0.5rem;
+.other-conditions-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
   font-size: 1.5rem;
-  font-weight: 400;
+  border-bottom: 1px solid rgba(247, 247, 247, 0.5);
 }
 
-#today-low {
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
-  font-weight: 400;
+.other-conditions-section:last-child {
+  border: none;
 }
 
-#todaySummary {
-  font-weight: 500;
-  line-height: 1.25rem;
-  font-weight: 400;
+.other-conditions-section p:first-child {
+  font-weight: bolder;
 }
 
 #hourly-forecast {
-  background-color: var(--medium-blue);
-  padding: 3.5em 1.5em;
-  margin: 4em 0 0 0;
-  border-radius: var(--normal-border-radius);
-  box-shadow: var(--box-shadow);
-  height: auto;
-
+  margin: 6rem auto 0 auto;
+  width: 100%;
+  max-width: 536px;
 }
 
-#hourly-graph {
+.hour-section {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: auto;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgba(247, 247, 247, 0.5);
 }
 
-.hourly-temp-and-icon {
-  background-color: rgba(247, 247, 247, 0.25);
-  border-radius: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0.75rem 0.25rem 0.25rem 0.25rem;
-  height: 15em;
-  margin: auto;
-  margin-bottom: 1rem;
-  width: 40px;
+.hour-section div p:first-child {
+  font-weight: bolder;
+  margin-bottom: 0.5rem;
 }
 
-.hourly-temp-and-icon-items {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+.hour-section > p {
+  font-size: 2.5rem;
 }
 
-.hourly-temp {
-  text-align: center;
+.hour-section div p:last-child {
+  font-size: 1rem;
+  font-weight: lighter;
+  opacity: 0.75;
 }
 
-.hourly-icon {
-  margin: auto;
-  width: 100%;
-  height: auto;
-}
-
-.hourly-time {
-  margin: auto;
-  text-align: center;
-  font-weight: 400;
+.hour-section:last-child {
+  border: none;
 }
 
 #five-day-outlook {
-  background-color: var(--medium-blue);
-  padding: 3.5em 1.5em;
-  margin: 4em 0 4em 0;
-  border-radius: var(--normal-border-radius);
-  box-shadow: var(--box-shadow);
-  height: auto;
+  margin: 6rem auto 0 auto;
+  width: 100%;
+  max-width: 536px;
 }
 
 .day-container {
   display: flex;
   flex-direction: row;
-  margin-bottom: 5rem;
-}
-
-.day-container:last-of-type {
-  margin: 0;
-}
-
-.day-name {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-
-.daily-high-low {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  font-weight: 400;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgba(247, 247, 247, 0.5);
 }
 
 .daily-icon {
-  margin-left: auto;
-  width: 7em;
+  width: 4rem;
 }
 
-.daily-icon img {
+.day-name {
+  font-weight: bolder;
+  margin-bottom: 0.5rem;
+}
+
+.daily-high-low {
+  font-weight: lighter;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+.day-container:last-child {
+  border: none;
+}
+
+footer {
   width: 100%;
-}
-
-
-h2 {
-  font-size: 3rem;
+  padding: 2rem;
+  margin-top: 4rem;
   text-align: center;
-  margin-bottom: 3rem;
-}
-
-
-@media screen and (min-width: 768px) {
-
-  header {
-    text-align: left;
-  }
-
-
-  #right-now {
-    flex-direction: column;
-    padding: 8em 3em;
-  }
-
-  #user-location {
-    font-size: 2rem;
-    margin-bottom: 2em;
-  }
-
-  #right-now-icon-temp {
-    margin: 0 auto 3em auto;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  #current-temp {
-    margin: 0 1rem;
-    font-size: 10rem;
-    align-self: flex-start;
-  }
-
-  #right-now-climacon {
-    width: 200px;
-    height: 150px;
-    margin: 0.8em 3em 3em 3em;
-  }
-
-  #other-conditions-container {
-    margin: auto;
-  }
-  
-
-
-  main {
-    padding: 0 16px;
-  }
-
-  #today-forecast {
-    height: auto;
-    text-align: left;
-    padding: 3.5em 3em;
-    max-width: 960px;
-  }
-
-  #hourly-forecast {
-    padding: 3.5em 3em;
-    max-width: 960px;
-  }
-
-  #five-day-outlook {
-    padding: 3.5em 3em;
-    max-width: 960px;
-  }
-
-  h2 {
-    text-align: left;
-  }
 }

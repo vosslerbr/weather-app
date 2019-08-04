@@ -31,7 +31,6 @@ body {
 }
 
 header {
-  outline: 1px solid yellow;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -44,17 +43,21 @@ header input {
   width: 80%;
   font-size: 1rem;
   padding: 0.75rem 1.5rem;
-  border: none;
+  border: 2px solid #F7F7F7;
   border-radius: 400px;
+  background-color: transparent;
+  color: #F7F7F7;
 }
 
 header button {
   width: auto;
   font-size: 1rem;
-  border: none;
+  border: 2px solid #f7f7f7;
   border-radius: 400px;
-  padding: 0.75rem 1.5rem;
-  background-color: #F7F7F7;
+  padding: 0.5rem 1.25rem;
+  background-color: transparent;
+  color: #F7F7F7;
+  font-size: 1rem;
 }
 
 #right-now {
@@ -85,8 +88,31 @@ header button {
   margin: 1.5rem auto 0 auto;
 }
 
-#other-conditions {
+#right-now div img {
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 536px;
   margin: 6rem auto 0 auto;
+  justify-content: space-around;
+  font-size: 1.5rem;
+}
+
+nav li {
+  padding-bottom: 0.25rem;
+  transition: 0.2s;
+}
+
+.active-link {
+  border-bottom: 2px solid rgba(247, 247, 247, 0.5);
+}
+
+#other-conditions {
+  margin: 3.5rem auto 0 auto;
   width: 100%;
   max-width: 536px;
 }
@@ -110,9 +136,16 @@ header button {
 }
 
 #hourly-forecast {
-  margin: 6rem auto 0 auto;
+  margin: 3.5rem auto 0 auto;
   width: 100%;
   max-width: 536px;
+  display: none;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .hour-section {
@@ -145,9 +178,10 @@ header button {
 }
 
 #five-day-outlook {
-  margin: 6rem auto 0 auto;
+  margin: 3.5rem auto 0 auto;
   width: 100%;
   max-width: 536px;
+  display: none;
 }
 
 .day-container {
@@ -162,6 +196,10 @@ header button {
 
 .daily-icon {
   width: 4rem;
+}
+
+.daily-icon img {
+  width: 100%;
 }
 
 .day-name {

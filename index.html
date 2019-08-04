@@ -18,7 +18,7 @@
   <title>Weather Application</title>
 </head>
 
-<body id="body">
+<body id="body" class="clear">
 
   <header>
       <input type="text" name="userInputField" id="user-input-field" placeholder="Search...">
@@ -32,6 +32,14 @@
       <img src="" alt="" id="right-now-climacon-svg">
     </div>
   </div>
+
+  <nav>
+    <ul>
+      <li onclick="now()" id="now-link" class="active-link">Now</li>
+      <li onclick="hourly()" id="hourly-link">Hourly</li>
+      <li onclick="daily()" id="daily-link">Daily</li>
+    </ul>
+  </nav>
 
   <div id="other-conditions">
     <div class="other-conditions-section">

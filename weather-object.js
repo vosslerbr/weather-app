@@ -245,3 +245,38 @@ function fillPage(darkSkyData) {
 }
 
 addEventListener('load', getUserLocation);
+
+
+const otherConditions = document.getElementById('other-conditions');
+const hourlySection = document.getElementById('hourly-forecast');
+const dailySection = document.getElementById('five-day-outlook');
+const nowLink = document.getElementById('now-link');
+const hourlyLink = document.getElementById('hourly-link');
+const dailyLink = document.getElementById('daily-link');
+
+function now() {
+  otherConditions.style.display = 'block';
+  hourlySection.style.display = 'none';
+  dailySection.style.display = 'none';
+  nowLink.className = 'active-link';
+  hourlyLink.removeAttribute('class');
+  dailyLink.removeAttribute('class');
+}
+
+function hourly() {
+  otherConditions.style.display = 'none';
+  hourlySection.style.display = 'block';
+  dailySection.style.display = 'none';
+  hourlyLink.className = 'active-link';
+  nowLink.removeAttribute('class');
+  dailyLink.removeAttribute('class');
+}
+
+function daily() {
+  otherConditions.style.display = 'none';
+  hourlySection.style.display = 'none';
+  dailySection.style.display = 'block';
+  dailyLink.className = 'active-link';
+  nowLink.removeAttribute('class');
+  hourlyLink.removeAttribute('class');
+}

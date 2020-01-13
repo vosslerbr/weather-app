@@ -1,148 +1,105 @@
 :root {
-  --blue-gradient: to bottom, #93c1ff, #5E80AF;
-  --dark-blue: #01364A;
-  --medium-blue: #004B67;
-  --light-blue: #007BA8;
-  --gray: #323232;
-  --white: #F7F7F7;
-  --main-font: 'Work Sans', sans-serif;
-  --normal-border-radius: 15px;
-  --header-shadow: 0px 5px 6px rgba(0, 0, 0, 0.308);
-  --box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.40);
-}
-
-.cloudy-or-rainy {
-  background-image: linear-gradient(45deg, rgb(192, 192, 192), #989898)
-}
-
-.clear {
-  background-image: linear-gradient(45deg, #8BBBFC, #708FBA)
-}
-
-.night {
-  background-image: linear-gradient(45deg, #484B5A, #242533)
+  --main-bg-color: #263747;
+  --component-bg-color: #324353;
+  --white: #F4FDFE;
+  --main-font: 'Lato', sans-serif;
+  --component-shadow: 2px 3px 10px rgba(17, 24, 31, 0.25);
 }
 
 body {
   color: var(--white);
   font-family: var(--main-font);
-  letter-spacing: 0.05em;
-  padding: 2rem 1rem 0 1rem;
+  background-color: var(--main-bg-color);
+  padding: 0 1rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+header input, #right-now, #hourly-forecast, .day-container {
+  background-color: var(--component-bg-color);
+  box-shadow: var(--component-shadow);
+  margin-bottom: 1rem;
+  border-radius: 3px;
 }
 
 header {
-  margin: auto;
-  display: flex;
-  flex-direction: row;
   width: 100%;
-  max-width: 536px;
-  justify-content: space-between;
+  max-width: 590px;
 }
 
 header input {
-  width: 80%;
+  width: 100%;
   font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #F7F7F7;
-  border-radius: 400px;
-  background-color: transparent;
-  color: #F7F7F7;
+  padding: 0.75rem 1rem;
+  border: none;
+  color: var(--white);
 }
 
 header input:focus {
   outline: none;
 }
 
-header button {
-  width: auto;
-  font-size: 1rem;
-  border: 2px solid #f7f7f7;
-  border-radius: 400px;
-  padding: 0.5rem 1.25rem;
-  background-color: transparent;
-  color: #F7F7F7;
-  font-size: 1rem;
-}
-
 #right-now {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+#current-conditions h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+}
+
+#current-temp {
+  font-size: 4rem;
+}
+
+#right-now-climacon {
+  width: 5.5rem;
+  margin-right: 1rem;
+  display: flex;
   flex-direction: column;
-  margin: auto;
-  width: 100%;
-  max-width: 536px;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-}
-
-#right-now h1 {
-  font-size: 2.5rem;
-  font-weight: lighter;
-  margin-top: 4rem;
-}
-
-#right-now p {
-  font-size: 6rem;
-  margin-top: 1.5rem;
-}
-
-#right-now div {
-  width: 118px;
-  margin: 1.5rem auto 0 auto;
+  justify-content: flex-end;
 }
 
 #right-now div img {
   width: 100%;
 }
 
-nav ul {
+#climacon-temp-condition {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  max-width: 536px;
-  margin: 6rem auto 0 auto;
-  justify-content: space-around;
-  font-size: 1.5rem;
 }
 
-nav li {
-  padding-bottom: 0.25rem;
-  transition: 0.2s;
-}
-
-.active-link {
-  border-bottom: 2px solid rgba(247, 247, 247, 0.5);
+#current-condition {
+  font-weight: lighter;
 }
 
 #other-conditions {
-  margin: 3.5rem auto 0 auto;
-  width: 100%;
-  max-width: 536px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .other-conditions-section {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  font-size: 1.5rem;
-  border-bottom: 1px solid rgba(247, 247, 247, 0.5);
+  flex-direction: column-reverse;
+  margin-left: 3rem;
+  font-size: 2.5rem;
 }
 
-.other-conditions-section:last-child {
-  border: none;
-}
-
-.other-conditions-section p:first-child {
-  font-weight: bolder;
+.other-conditions-title {
+  font-size: 1rem; /* overrides font size from above rule */
+  font-weight: lighter;
+  margin-top: 1rem;
 }
 
 #hourly-forecast {
-  margin: 3.5rem auto 0 auto;
-  width: 100%;
-  max-width: 536px;
-  display: none;
 }
 
 h2 {
@@ -181,20 +138,19 @@ h2 {
 }
 
 #five-day-outlook {
-  margin: 3.5rem auto 0 auto;
-  width: 100%;
-  max-width: 536px;
-  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: scroll;
 }
 
 .day-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
-  font-size: 1.5rem;
-  border-bottom: 1px solid rgba(247, 247, 247, 0.5);
+  padding: 1rem;
+  min-width: 175px;
 }
 
 .daily-icon {
@@ -221,8 +177,6 @@ h2 {
 }
 
 footer {
-  width: 100%;
-  padding: 2rem;
-  margin-top: 4rem;
+  padding: 1rem;
   text-align: center;
 }

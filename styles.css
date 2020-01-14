@@ -4,6 +4,14 @@
   --white: #F4FDFE;
   --main-font: 'Lato', sans-serif;
   --component-shadow: 2px 3px 10px rgba(17, 24, 31, 0.25);
+  --yellow: #FAFF81;
+  --purple: #E590FF;
+  --blue: #83DEFF;
+  --green: #91FFB3;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -27,7 +35,7 @@ header input, #right-now, #hourly-forecast, .day-container {
 
 header {
   width: 100%;
-  max-width: 590px;
+
 }
 
 header input {
@@ -35,7 +43,8 @@ header input {
   font-size: 1rem;
   padding: 0.75rem 1rem;
   border: none;
-  color: var(--white);
+  color: var(--white);  
+  max-width: 590px;
 }
 
 header input:focus {
@@ -47,6 +56,13 @@ header input:focus {
   flex-direction: row;
   justify-content: space-between;
   padding: 1rem;
+}
+
+@media screen and (max-width: 940px) {
+  
+  #right-now {
+    flex-direction: column;
+  }
 }
 
 #current-conditions h1 {
@@ -84,6 +100,7 @@ header input:focus {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .other-conditions-section {
@@ -93,10 +110,27 @@ header input:focus {
   font-size: 2.5rem;
 }
 
+@media screen and (max-width: 940px) {
+  
+  .other-conditions-section {
+    margin-left: 0;
+    margin-right: 3rem;
+    margin-top: 2rem;
+  }
+}
+
 .other-conditions-title {
   font-size: 1rem; /* overrides font size from above rule */
   font-weight: lighter;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+}
+
+p[id*='humidity'], p[id*='dew'] {
+  color: var(--blue);
+}
+
+p[id*=wind] {
+  color: var(--green);
 }
 
 #hourly-forecast {
@@ -150,11 +184,19 @@ h2 {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  min-width: 175px;
+  width: 18%;
+  min-width: 125px;
+  margin: 0 1rem 0 0;
+  text-align: center;
+}
+
+.day-container li {
+  margin-bottom: 0.5rem;
 }
 
 .daily-icon {
-  width: 4rem;
+  width: 4.5rem;
+  margin-bottom: 1rem;
 }
 
 .daily-icon img {
@@ -163,13 +205,25 @@ h2 {
 
 .day-name {
   font-weight: bolder;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
 }
 
 .daily-high-low {
   font-weight: lighter;
   font-size: 1rem;
-  margin-top: 0.25rem;
+}
+
+li[id*='-high'] {
+  color: var(--yellow);
+}
+
+li[id*='-low'] {
+  color: var(--purple);
+}
+
+li[id*='-precip'] {
+  color: var(--blue);
 }
 
 .day-container:last-child {

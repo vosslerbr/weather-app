@@ -159,6 +159,7 @@ function fillPage(darkSkyData) {
   dewPoint.textContent = Math.round(darkSkyData.currently.dewPoint);
 
   //////////// NEXT 6 HOURS TEMPS //////////////////
+  /*
   // Create empty array to hold next 6 hours of temps
   const hours = [];
   const hourTimes = [];
@@ -193,7 +194,7 @@ function fillPage(darkSkyData) {
   hour4Time.innerHTML = (hourTimes[4].replace(' AM', 'am').replace(' PM', 'pm'));
   hour5Time.innerHTML = (hourTimes[5].replace(' AM', 'am').replace(' PM', 'pm'));
   /////////////////////////////////////////////
-
+*/
   //////////// 5 DAY OUTLOOK //////////////////
   // Create empty array to hold next 6 hours of temps
   const highs = [];

@@ -68,7 +68,7 @@ header input:focus {
 #current-conditions h1 {
   font-size: 2rem;
   font-weight: bold;
-  margin: 0 0 1rem 0;
+  margin: 0 0 2rem 0;
 }
 
 #current-temp {
@@ -192,6 +192,8 @@ h2 {
 
 .day-container li {
   margin-bottom: 0.5rem;
+  font-weight: lighter;
+  font-size: 1rem;
 }
 
 .daily-icon {
@@ -209,11 +211,6 @@ h2 {
   font-size: 1.25rem;
 }
 
-.daily-high-low {
-  font-weight: lighter;
-  font-size: 1rem;
-}
-
 li[id*='-high'] {
   color: var(--yellow);
 }
@@ -224,10 +221,6 @@ li[id*='-low'] {
 
 li[id*='-precip'] {
   color: var(--blue);
-}
-
-.day-container:last-child {
-  border: none;
 }
 
 footer {

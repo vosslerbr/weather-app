@@ -139,17 +139,14 @@ function fillPage(darkSkyData) {
   const day2Icon = document.getElementById('day2-icon');
   const day3Icon = document.getElementById('day3-icon');
   const day4Icon = document.getElementById('day4-icon');
-  
-  
-  // Set body background gradient
-  if (darkSkyData.currently.icon === 'clear-day' || darkSkyData.currently.icon === 'partly-cloudy-day') {
-    body.className = 'clear';
-  } else if (darkSkyData.currently.icon === 'clear-night' || darkSkyData.currently.icon === 'partly-cloudy-night') {
-    body.className = 'night';
-  } else {
-    body.className = 'cloudy-or-rainy';
-  }
 
+  const day0Precip = document.getElementById('day0-precip');
+  const day1Precip = document.getElementById('day1-precip');
+  const day2Precip = document.getElementById('day2-precip');
+  const day3Precip = document.getElementById('day3-precip');
+  const day4Precip = document.getElementById('day4-precip');
+  
+  
   // Fill data to DOM nodes
   currentTemp.textContent = Math.round(darkSkyData.currently.temperature);
   currentIcon.src = "climacons/" + darkSkyData.currently.icon + ".svg"
@@ -196,9 +193,10 @@ function fillPage(darkSkyData) {
   /////////////////////////////////////////////
 */
   //////////// 5 DAY OUTLOOK //////////////////
-  // Create empty array to hold next 6 hours of temps
+  // Create empty arrays to hold next 5 days info
   const highs = [];
   const lows = [];
+  const precips= [];
   const dayNumbers = [];
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dayNames = [];
@@ -209,6 +207,7 @@ function fillPage(darkSkyData) {
     // Rounds down to nearest degree, will always be up to date from API
     highs[i] = Math.round(darkSkyData.daily.data[i].temperatureHigh);
     lows[i] = Math.round(darkSkyData.daily.data[i].temperatureLow);
+    precips[i] = Math.round((darkSkyData.daily.data[i].precipProbability) * 100);
     dayNumbers[i] = new Date(darkSkyData.daily.data[i].time * 1000).getDay();
     dayIcons[i] = darkSkyData.daily.data[i].icon;
   }    
@@ -231,6 +230,12 @@ function fillPage(darkSkyData) {
   day2Low.innerHTML = 'Low: ' + lows[2] + '&deg;';
   day3Low.innerHTML = 'Low: ' + lows[3] + '&deg;';
   day4Low.innerHTML = 'Low: ' + lows[4] + '&deg;';
+
+  day0Precip.innerHTML = 'Precip: ' + precips[0] + '%';
+  day1Precip.innerHTML = 'Precip: ' + precips[1] + '%';
+  day2Precip.innerHTML = 'Precip: ' + precips[2] + '%';
+  day3Precip.innerHTML = 'Precip: ' + precips[3] + '%';
+  day4Precip.innerHTML = 'Precip: ' + precips[4] + '%';
 
   day0Name.innerHTML = dayNames[0];
   day1Name.innerHTML = dayNames[1];

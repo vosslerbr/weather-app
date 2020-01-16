@@ -80,16 +80,16 @@ async function fetchApi(lat, long) {
 
   // Log the JSON data from response
   fillPage(data);
+  createAlert(data);
 }
 
 // Fill all elements on the page with correct data from DarkSky object
 function fillPage(darkSkyData) {
 
   // Fill constants with nodes from DOM
-  const body = document.getElementById('body');
-
   const currentTemp = document.getElementById('current-temp');
   const currentIcon = document.querySelector('#right-now-climacon-svg');
+  const currentCondition = document.getElementById('current-condition')
   const feelsLike = document.getElementById('feels-like-data');
   const windSpeed = document.getElementById('wind-speed-data');
   const humidity = document.getElementById('humidity-data');
@@ -150,6 +150,7 @@ function fillPage(darkSkyData) {
   // Fill data to DOM nodes
   currentTemp.textContent = Math.round(darkSkyData.currently.temperature);
   currentIcon.src = "climacons/" + darkSkyData.currently.icon + ".svg"
+  currentCondition.textContent = darkSkyData.currently.summary;
   feelsLike.textContent = Math.round(darkSkyData.currently.apparentTemperature);
   windSpeed.textContent = Math.round(darkSkyData.currently.windSpeed) + ' mph';
   humidity.textContent = Math.round(darkSkyData.currently.humidity * 100) + '%';
@@ -256,33 +257,95 @@ addEventListener('load', getUserLocation);
 const otherConditions = document.getElementById('other-conditions');
 const hourlySection = document.getElementById('hourly-forecast');
 const dailySection = document.getElementById('five-day-outlook');
-const nowLink = document.getElementById('now-link');
-const hourlyLink = document.getElementById('hourly-link');
-const dailyLink = document.getElementById('daily-link');
 
-function now() {
-  otherConditions.style.display = 'block';
-  hourlySection.style.display = 'none';
-  dailySection.style.display = 'none';
-  nowLink.className = 'active-link';
-  hourlyLink.removeAttribute('class');
-  dailyLink.removeAttribute('class');
+function createAlert(data) {
+  if (data.alerts) {
+    const alertBox = document.createElement('span');
+    const currentConditions = document.getElementById('current-conditions');
+    alertBox.textContent = data.alerts['0'].title;
+    currentConditions.insertBefore(alertBox, document.getElementById('climacon-temp-condition'));
+  }
 }
 
-function hourly() {
-  otherConditions.style.display = 'none';
-  hourlySection.style.display = 'block';
-  dailySection.style.display = 'none';
-  hourlyLink.className = 'active-link';
-  nowLink.removeAttribute('class');
-  dailyLink.removeAttribute('class');
+/*
+
+Wind bearing:
+350 to 010 - North
+011 to 039 - NNE
+040 to 050 - NE
+051 to 079 - ENE
+
+80 to 100 - East
+101 to 129 - ESE
+130 to 140 - SE
+141 to 169 - SSE
+
+170 to 190 - South
+191 to 219 - SSW
+220 to 230 - SW
+231 to 259 - WSW
+
+260 to 280 - West
+281 to 309 - WNW
+310 to 320 - NW
+321 to 349 - NNW
+
+Write a switch statement:
+*/
+
+function test(x) {
+  let windBearingNumber = x//darkSkyData.currently.windBearing;
+  switch (true) {
+    case (windBearingNumber >= 350 || windBearingNumber <= 010):
+      console.log("N");
+      break;
+    case (windBearingNumber <= 39):
+      console.log("NNE");
+      break;
+    case (windBearingNumber <= 050):
+      console.log("NE");
+      break;
+    case (windBearingNumber <= 79):
+      console.log("ENE");
+      break;
+    case (windBearingNumber <= 100):
+      console.log("E");
+      break;
+    case (windBearingNumber <= 129):
+      console.log("ESE");
+      break;
+    case (windBearingNumber <= 140):
+      console.log("SE");
+      break;
+    case (windBearingNumber <= 169):
+      console.log("SSE");
+      break;
+    case (windBearingNumber <= 190):
+      console.log("S");
+      break;
+    case (windBearingNumber <= 219):
+      console.log("SSW");
+      break;
+    case (windBearingNumber <= 230):
+      console.log("SW");
+      break;
+    case (windBearingNumber <= 259):
+      console.log("WSW");
+      break;
+    case (windBearingNumber <= 280):
+      console.log("W");
+      break;
+    case (windBearingNumber <= 309):
+      console.log("WNW");
+      break;
+    case (windBearingNumber <= 320):
+      console.log("NW");
+      break;
+    case (windBearingNumber <= 349):
+      console.log("NNW");
+      break;
+  }
 }
 
-function daily() {
-  otherConditions.style.display = 'none';
-  hourlySection.style.display = 'none';
-  dailySection.style.display = 'block';
-  dailyLink.className = 'active-link';
-  nowLink.removeAttribute('class');
-  hourlyLink.removeAttribute('class');
-}
+
+

@@ -94,7 +94,19 @@ function fillPage(darkSkyData) {
   const windSpeed = document.getElementById('wind-speed-data');
   const humidity = document.getElementById('humidity-data');
   const dewPoint = document.getElementById('dew-point-data');
+  const windDirection = document.getElementById('wind-bearing-data');
 
+  // Fill data to DOM nodes
+  currentTemp.textContent = Math.round(darkSkyData.currently.temperature);
+  currentIcon.src = "climacons/" + darkSkyData.currently.icon + ".svg"
+  currentCondition.textContent = darkSkyData.currently.summary;
+  feelsLike.textContent = Math.round(darkSkyData.currently.apparentTemperature);
+  windSpeed.textContent = Math.round(darkSkyData.currently.windSpeed) + ' mph';
+  humidity.textContent = Math.round(darkSkyData.currently.humidity * 100) + '%';
+  dewPoint.textContent = Math.round(darkSkyData.currently.dewPoint);
+  windDirection.textContent = setWindBearing(darkSkyData.currently.windBearing);
+
+  /*
   const hour0Temp = document.getElementById('hour0-temp');
   const hour1Temp = document.getElementById('hour1-temp');
   const hour2Temp = document.getElementById('hour2-temp');
@@ -115,46 +127,7 @@ function fillPage(darkSkyData) {
   const hour3condition = document.getElementById('hour3-condition');
   const hour4condition = document.getElementById('hour4-condition');
   const hour5condition = document.getElementById('hour5-condition');
-
-  const day0Name = document.getElementById('day0-name');
-  const day1Name = document.getElementById('day1-name');
-  const day2Name = document.getElementById('day2-name');
-  const day3Name = document.getElementById('day3-name');
-  const day4Name = document.getElementById('day4-name');
-
-  const day0High = document.getElementById('day0-high');
-  const day1High = document.getElementById('day1-high');
-  const day2High = document.getElementById('day2-high');
-  const day3High = document.getElementById('day3-high');
-  const day4High = document.getElementById('day4-high');
-
-  const day0Low = document.getElementById('day0-low');
-  const day1Low = document.getElementById('day1-low');
-  const day2Low = document.getElementById('day2-low');
-  const day3Low = document.getElementById('day3-low');
-  const day4Low = document.getElementById('day4-low');
-
-  const day0Icon = document.getElementById('day0-icon');
-  const day1Icon = document.getElementById('day1-icon');
-  const day2Icon = document.getElementById('day2-icon');
-  const day3Icon = document.getElementById('day3-icon');
-  const day4Icon = document.getElementById('day4-icon');
-
-  const day0Precip = document.getElementById('day0-precip');
-  const day1Precip = document.getElementById('day1-precip');
-  const day2Precip = document.getElementById('day2-precip');
-  const day3Precip = document.getElementById('day3-precip');
-  const day4Precip = document.getElementById('day4-precip');
-  
-  
-  // Fill data to DOM nodes
-  currentTemp.textContent = Math.round(darkSkyData.currently.temperature);
-  currentIcon.src = "climacons/" + darkSkyData.currently.icon + ".svg"
-  currentCondition.textContent = darkSkyData.currently.summary;
-  feelsLike.textContent = Math.round(darkSkyData.currently.apparentTemperature);
-  windSpeed.textContent = Math.round(darkSkyData.currently.windSpeed) + ' mph';
-  humidity.textContent = Math.round(darkSkyData.currently.humidity * 100) + '%';
-  dewPoint.textContent = Math.round(darkSkyData.currently.dewPoint);
+  */
 
   //////////// NEXT 6 HOURS TEMPS //////////////////
   /*
@@ -192,7 +165,38 @@ function fillPage(darkSkyData) {
   hour4Time.innerHTML = (hourTimes[4].replace(' AM', 'am').replace(' PM', 'pm'));
   hour5Time.innerHTML = (hourTimes[5].replace(' AM', 'am').replace(' PM', 'pm'));
   /////////////////////////////////////////////
-*/
+  */
+
+  const day0Name = document.getElementById('day0-name');
+  const day1Name = document.getElementById('day1-name');
+  const day2Name = document.getElementById('day2-name');
+  const day3Name = document.getElementById('day3-name');
+  const day4Name = document.getElementById('day4-name');
+
+  const day0High = document.getElementById('day0-high');
+  const day1High = document.getElementById('day1-high');
+  const day2High = document.getElementById('day2-high');
+  const day3High = document.getElementById('day3-high');
+  const day4High = document.getElementById('day4-high');
+
+  const day0Low = document.getElementById('day0-low');
+  const day1Low = document.getElementById('day1-low');
+  const day2Low = document.getElementById('day2-low');
+  const day3Low = document.getElementById('day3-low');
+  const day4Low = document.getElementById('day4-low');
+
+  const day0Icon = document.getElementById('day0-icon');
+  const day1Icon = document.getElementById('day1-icon');
+  const day2Icon = document.getElementById('day2-icon');
+  const day3Icon = document.getElementById('day3-icon');
+  const day4Icon = document.getElementById('day4-icon');
+
+  const day0Precip = document.getElementById('day0-precip');
+  const day1Precip = document.getElementById('day1-precip');
+  const day2Precip = document.getElementById('day2-precip');
+  const day3Precip = document.getElementById('day3-precip');
+  const day4Precip = document.getElementById('day4-precip');
+
   //////////// 5 DAY OUTLOOK //////////////////
   // Create empty arrays to hold next 5 days info
   const highs = [];
@@ -249,6 +253,7 @@ function fillPage(darkSkyData) {
   day2Icon.src = 'climacons/' + dayIcons[2] + '.svg';
   day3Icon.src = 'climacons/' + dayIcons[3] + '.svg';
   day4Icon.src = 'climacons/' + dayIcons[4] + '.svg';
+    
 }
 
 addEventListener('load', getUserLocation);
@@ -293,57 +298,43 @@ Wind bearing:
 Write a switch statement:
 */
 
-function test(x) {
+const setWindBearing = (x) => {
   let windBearingNumber = x//darkSkyData.currently.windBearing;
   switch (true) {
     case (windBearingNumber >= 350 || windBearingNumber <= 010):
-      console.log("N");
-      break;
+      return("N");
     case (windBearingNumber <= 39):
-      console.log("NNE");
-      break;
+      return("NNE");
     case (windBearingNumber <= 050):
-      console.log("NE");
-      break;
+      return("NE");
     case (windBearingNumber <= 79):
-      console.log("ENE");
-      break;
+      return("ENE");
     case (windBearingNumber <= 100):
-      console.log("E");
-      break;
+      return("E");
     case (windBearingNumber <= 129):
-      console.log("ESE");
-      break;
+      return("ESE");
     case (windBearingNumber <= 140):
-      console.log("SE");
-      break;
+      return("SE");
     case (windBearingNumber <= 169):
-      console.log("SSE");
-      break;
+      return("SSE");
     case (windBearingNumber <= 190):
-      console.log("S");
-      break;
+      return("S");
     case (windBearingNumber <= 219):
-      console.log("SSW");
-      break;
+      return("SSW");
     case (windBearingNumber <= 230):
-      console.log("SW");
-      break;
+      return("SW");
     case (windBearingNumber <= 259):
-      console.log("WSW");
-      break;
+      return("WSW");
     case (windBearingNumber <= 280):
-      console.log("W");
-      break;
+      return("W");
     case (windBearingNumber <= 309):
-      console.log("WNW");
-      break;
+      return("WNW");
     case (windBearingNumber <= 320):
-      console.log("NW");
-      break;
+      return("NW");
     case (windBearingNumber <= 349):
-      console.log("NNW");
-      break;
+      return("NNW");
+    default:
+      return("--")
   }
 }
 

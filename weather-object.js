@@ -89,7 +89,6 @@ function fillPage(darkSkyData) {
   // Fill constants with nodes from DOM
   const currentTemp = document.getElementById('current-temp');
   const currentIcon = document.querySelector('#right-now-climacon-svg');
-  const currentCondition = document.getElementById('current-condition')
   const feelsLike = document.getElementById('feels-like-data');
   const windSpeed = document.getElementById('wind-speed-data');
   const humidity = document.getElementById('humidity-data');
@@ -99,8 +98,7 @@ function fillPage(darkSkyData) {
   // Fill data to DOM nodes
   currentTemp.textContent = Math.round(darkSkyData.currently.temperature);
   currentIcon.src = "climacons/" + darkSkyData.currently.icon + ".svg"
-  currentCondition.textContent = darkSkyData.currently.summary;
-  feelsLike.textContent = Math.round(darkSkyData.currently.apparentTemperature);
+  feelsLike.textContent = 'Feels like: ' + Math.round(darkSkyData.currently.apparentTemperature);
   windSpeed.textContent = Math.round(darkSkyData.currently.windSpeed) + ' mph';
   humidity.textContent = Math.round(darkSkyData.currently.humidity * 100) + '%';
   dewPoint.textContent = Math.round(darkSkyData.currently.dewPoint);
@@ -170,32 +168,22 @@ function fillPage(darkSkyData) {
   const day0Name = document.getElementById('day0-name');
   const day1Name = document.getElementById('day1-name');
   const day2Name = document.getElementById('day2-name');
-  const day3Name = document.getElementById('day3-name');
-  const day4Name = document.getElementById('day4-name');
 
   const day0High = document.getElementById('day0-high');
   const day1High = document.getElementById('day1-high');
   const day2High = document.getElementById('day2-high');
-  const day3High = document.getElementById('day3-high');
-  const day4High = document.getElementById('day4-high');
 
   const day0Low = document.getElementById('day0-low');
   const day1Low = document.getElementById('day1-low');
   const day2Low = document.getElementById('day2-low');
-  const day3Low = document.getElementById('day3-low');
-  const day4Low = document.getElementById('day4-low');
-
+  
   const day0Icon = document.getElementById('day0-icon');
   const day1Icon = document.getElementById('day1-icon');
   const day2Icon = document.getElementById('day2-icon');
-  const day3Icon = document.getElementById('day3-icon');
-  const day4Icon = document.getElementById('day4-icon');
 
   const day0Precip = document.getElementById('day0-precip');
   const day1Precip = document.getElementById('day1-precip');
   const day2Precip = document.getElementById('day2-precip');
-  const day3Precip = document.getElementById('day3-precip');
-  const day4Precip = document.getElementById('day4-precip');
 
   //////////// 5 DAY OUTLOOK //////////////////
   // Create empty arrays to hold next 5 days info
@@ -226,33 +214,23 @@ function fillPage(darkSkyData) {
   day0High.innerHTML = 'High: ' + highs[0] + '&deg;';
   day1High.innerHTML = 'High: ' + highs[1] + '&deg;';
   day2High.innerHTML = 'High: ' + highs[2] + '&deg;';
-  day3High.innerHTML = 'High: ' + highs[3] + '&deg;';
-  day4High.innerHTML = 'High: ' + highs[4] + '&deg;';
   
   // Fill daily lows from array
   day0Low.innerHTML = 'Low: ' + lows[0] + '&deg;';
   day1Low.innerHTML = 'Low: ' + lows[1] + '&deg;';
   day2Low.innerHTML = 'Low: ' + lows[2] + '&deg;';
-  day3Low.innerHTML = 'Low: ' + lows[3] + '&deg;';
-  day4Low.innerHTML = 'Low: ' + lows[4] + '&deg;';
 
   day0Precip.innerHTML = 'Precip: ' + precips[0] + '%';
   day1Precip.innerHTML = 'Precip: ' + precips[1] + '%';
   day2Precip.innerHTML = 'Precip: ' + precips[2] + '%';
-  day3Precip.innerHTML = 'Precip: ' + precips[3] + '%';
-  day4Precip.innerHTML = 'Precip: ' + precips[4] + '%';
 
   day0Name.innerHTML = dayNames[0];
   day1Name.innerHTML = dayNames[1];
   day2Name.innerHTML = dayNames[2];
-  day3Name.innerHTML = dayNames[3];
-  day4Name.innerHTML = dayNames[4];
 
   day0Icon.src = 'climacons/' + dayIcons[0] + '.svg';
   day1Icon.src = 'climacons/' + dayIcons[1] + '.svg';
   day2Icon.src = 'climacons/' + dayIcons[2] + '.svg';
-  day3Icon.src = 'climacons/' + dayIcons[3] + '.svg';
-  day4Icon.src = 'climacons/' + dayIcons[4] + '.svg';
     
 }
 

@@ -13,8 +13,7 @@
     <link rel="shortcut icon" href="favicon.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
-    <link rel="stylesheet" href="reset.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="styles.css">
     <title>Weather Application</title>
 </head>
@@ -26,29 +25,20 @@
         <input type="text" name="userInputField" id="user-input-field" placeholder="Search...">
     </header>
 
-    <div id="right-now">
-    <div id="current-conditions">
+    <div id="current-conditions" onclick="showHide()">
         <h1 id="user-location">--</h1>
         
-        <div id="climacon-temp-condition">
-           <div id="right-now-climacon">
+        <div id="climacon-temp-feelslike">
+            <div id="right-now-climacon">
                 <img src="" alt="" id="right-now-climacon-svg">
             </div>
-            
-            <div id="temp-condition">
-                <p id="current-temp">--</p>
-                <p id="current-condition">--</p>
-            </div> 
-        </div>
-        
-        
+            <p id="current-temp">--</p>
+
+            <p id="feels-like-data">--</p>
+        </div> 
     </div>
 
     <div id="other-conditions">
-        <div class="other-conditions-section">
-            <p id="feels-like" class="other-conditions-title">Feels like</p>
-            <p id="feels-like-data">--</p>
-        </div>
         <div class="other-conditions-section">
             <p id="humidity" class="other-conditions-title">Humidity</p>
             <p id="humidity-data">--</p>
@@ -66,7 +56,6 @@
             <p id="wind-bearing-data">--</p>
         </div>
     </div> 
-    </div>
 
 
 
@@ -161,34 +150,6 @@
         
     </div>
 
-    <div class="day-container">
-        <p id="day3-name" class="day-name">--</p>
-        <div class="daily-icon">
-            <img src="climacons/clear-day.svg" alt="" id="day3-icon">
-        </div>
-        
-        <ul>
-            <li id="day3-high" class="daily-high-low">--</li>
-            <li id="day3-low" class="daily-high-low">--</li>
-            <li id="day3-precip">--</li>
-        </ul>
-        
-    </div>
-
-    <div class="day-container">
-        <p id="day4-name" class="day-name">--</p>
-        <div class="daily-icon">
-            <img src="climacons/clear-day.svg" alt="" id="day4-icon">
-        </div>
-        
-        <ul>
-            <li id="day4-high" class="daily-high-low">--</li>
-            <li id="day4-low" class="daily-high-low">--</li>
-            <li id="day4-precip">--</li>
-        </ul>
-        
-    </div>
-
     </div>
     </main>
 
@@ -210,5 +171,6 @@
         }
     </script>
     <script src="weather-object.js"></script>
+    <script src="actions.js"></script>
 </body>
 </html>

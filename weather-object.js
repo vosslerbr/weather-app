@@ -11,6 +11,14 @@ function getUserLocation() {
   }
 }
 
+const userInputField = document.getElementById('user-input-field');
+userInputField.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+      event.preventDefault();
+      userInput();
+  }
+});
+
 // User can enter a city name into the search field to find city
 function userInput() {
   // Set city to search bar from HTML
@@ -19,6 +27,8 @@ function userInput() {
   city = city.replace(/\s+/g, '-');
   // Pass value to function to get MapBox object from city name
   fetchMapApiForCity(city);
+
+  document.getElementById('user-input-field').value = '';
 }
 
 
@@ -104,92 +114,36 @@ function fillPage(darkSkyData) {
   dewPoint.textContent = Math.round(darkSkyData.currently.dewPoint);
   windDirection.textContent = setWindBearing(darkSkyData.currently.windBearing);
 
-  /*
-  const hour0Temp = document.getElementById('hour0-temp');
-  const hour1Temp = document.getElementById('hour1-temp');
-  const hour2Temp = document.getElementById('hour2-temp');
-  const hour3Temp = document.getElementById('hour3-temp');
-  const hour4Temp = document.getElementById('hour4-temp');
-  const hour5Temp = document.getElementById('hour5-temp');
-
-  const hour0Time = document.getElementById('hour0');
-  const hour1Time = document.getElementById('hour1');
-  const hour2Time = document.getElementById('hour2');
-  const hour3Time = document.getElementById('hour3');
-  const hour4Time = document.getElementById('hour4');
-  const hour5Time = document.getElementById('hour5');
-
-  const hour0condition = document.getElementById('hour0-condition');
-  const hour1condition = document.getElementById('hour1-condition');
-  const hour2condition = document.getElementById('hour2-condition');
-  const hour3condition = document.getElementById('hour3-condition');
-  const hour4condition = document.getElementById('hour4-condition');
-  const hour5condition = document.getElementById('hour5-condition');
-  */
-
-  //////////// NEXT 6 HOURS TEMPS //////////////////
-  /*
-  // Create empty array to hold next 6 hours of temps
-  const hours = [];
-  const hourTimes = [];
-  const hourConditions = [];
-
-  // Loop through array adding temps for each hour
-  for (let i = 0; i < 6; i++) {
-    // Rounds down to nearest degree, will always be up to date from API
-    hours[i] = Math.round(darkSkyData.hourly.data[i].temperature);
-    hourTimes[i] = new Date(darkSkyData.hourly.data[i].time * 1000).toLocaleString("en-US", {timeZone: darkSkyData.timezone, hour: 'numeric'});
-    hourConditions[i] = darkSkyData.hourly.data[i].summary;
-  }
-
-  hour0Temp.innerHTML = hours[0];
-  hour1Temp.innerHTML = hours[1];
-  hour2Temp.innerHTML = hours[2];
-  hour3Temp.innerHTML = hours[3];
-  hour4Temp.innerHTML = hours[4];
-  hour5Temp.innerHTML = hours[5];
-
-  hour0condition.innerHTML = hourConditions[0];
-  hour1condition.innerHTML = hourConditions[1];
-  hour2condition.innerHTML = hourConditions[2];
-  hour3condition.innerHTML = hourConditions[3];
-  hour4condition.innerHTML = hourConditions[4];
-  hour5condition.innerHTML = hourConditions[5];
-
-  hour0Time.innerHTML = (hourTimes[0].replace(' AM', 'am').replace(' PM', 'pm'));
-  hour1Time.innerHTML = (hourTimes[1].replace(' AM', 'am').replace(' PM', 'pm'));
-  hour2Time.innerHTML = (hourTimes[2].replace(' AM', 'am').replace(' PM', 'pm'));
-  hour3Time.innerHTML = (hourTimes[3].replace(' AM', 'am').replace(' PM', 'pm'));
-  hour4Time.innerHTML = (hourTimes[4].replace(' AM', 'am').replace(' PM', 'pm'));
-  hour5Time.innerHTML = (hourTimes[5].replace(' AM', 'am').replace(' PM', 'pm'));
-  /////////////////////////////////////////////
-  */
 
   const day0Name = document.getElementById('day0-name');
   const day1Name = document.getElementById('day1-name');
   const day2Name = document.getElementById('day2-name');
+  const day3Name = document.getElementById('day3-name');
+  const day4Name = document.getElementById('day4-name');
 
   const day0High = document.getElementById('day0-high');
   const day1High = document.getElementById('day1-high');
   const day2High = document.getElementById('day2-high');
+  const day3High = document.getElementById('day3-high');
+  const day4High = document.getElementById('day4-high');
 
   const day0Low = document.getElementById('day0-low');
   const day1Low = document.getElementById('day1-low');
   const day2Low = document.getElementById('day2-low');
+  const day3Low = document.getElementById('day3-low');
+  const day4Low = document.getElementById('day4-low');
   
   const day0Icon = document.getElementById('day0-icon');
   const day1Icon = document.getElementById('day1-icon');
   const day2Icon = document.getElementById('day2-icon');
-
-  const day0Precip = document.getElementById('day0-precip');
-  const day1Precip = document.getElementById('day1-precip');
-  const day2Precip = document.getElementById('day2-precip');
+  const day3Icon = document.getElementById('day3-icon');
+  const day4Icon = document.getElementById('day4-icon');
 
   //////////// 5 DAY OUTLOOK //////////////////
   // Create empty arrays to hold next 5 days info
   const highs = [];
   const lows = [];
-  const precips= [];
+ 
   const dayNumbers = [];
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dayNames = [];
@@ -200,7 +154,7 @@ function fillPage(darkSkyData) {
     // Rounds down to nearest degree, will always be up to date from API
     highs[i] = Math.round(darkSkyData.daily.data[i].temperatureHigh);
     lows[i] = Math.round(darkSkyData.daily.data[i].temperatureLow);
-    precips[i] = Math.round((darkSkyData.daily.data[i].precipProbability) * 100);
+
     dayNumbers[i] = new Date(darkSkyData.daily.data[i].time * 1000).getDay();
     dayIcons[i] = darkSkyData.daily.data[i].icon;
   }    
@@ -211,26 +165,30 @@ function fillPage(darkSkyData) {
 
 
   // Fills daily highs from array
-  day0High.innerHTML = 'High: ' + highs[0] + '&deg;';
-  day1High.innerHTML = 'High: ' + highs[1] + '&deg;';
-  day2High.innerHTML = 'High: ' + highs[2] + '&deg;';
+  day0High.innerHTML = highs[0];
+  day1High.innerHTML = highs[1];
+  day2High.innerHTML = highs[2];
+  day3High.innerHTML = highs[3];
+  day4High.innerHTML = highs[4];
   
   // Fill daily lows from array
-  day0Low.innerHTML = 'Low: ' + lows[0] + '&deg;';
-  day1Low.innerHTML = 'Low: ' + lows[1] + '&deg;';
-  day2Low.innerHTML = 'Low: ' + lows[2] + '&deg;';
-
-  day0Precip.innerHTML = 'Precip: ' + precips[0] + '%';
-  day1Precip.innerHTML = 'Precip: ' + precips[1] + '%';
-  day2Precip.innerHTML = 'Precip: ' + precips[2] + '%';
+  day0Low.innerHTML = lows[0];
+  day1Low.innerHTML = lows[1];
+  day2Low.innerHTML = lows[2];
+  day3Low.innerHTML = lows[3];
+  day4Low.innerHTML = lows[4];
 
   day0Name.innerHTML = dayNames[0];
   day1Name.innerHTML = dayNames[1];
   day2Name.innerHTML = dayNames[2];
+  day3Name.innerHTML = dayNames[3];
+  day4Name.innerHTML = dayNames[4];
 
   day0Icon.src = 'climacons/' + dayIcons[0] + '.svg';
   day1Icon.src = 'climacons/' + dayIcons[1] + '.svg';
   day2Icon.src = 'climacons/' + dayIcons[2] + '.svg';
+  day3Icon.src = 'climacons/' + dayIcons[3] + '.svg';
+  day4Icon.src = 'climacons/' + dayIcons[4] + '.svg';
     
 }
 
@@ -244,9 +202,9 @@ const dailySection = document.getElementById('five-day-outlook');
 function createAlert(data) {
   if (data.alerts) {
     const alertBox = document.createElement('span');
-    const currentConditions = document.getElementById('current-conditions');
+    const main = document.getElementById('main');
     alertBox.textContent = data.alerts['0'].title;
-    currentConditions.insertBefore(alertBox, document.getElementById('climacon-temp-condition'));
+    main.insertBefore(alertBox, document.getElementById('current-conditions'));
   }
 }
 

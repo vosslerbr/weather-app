@@ -86,11 +86,7 @@ span {
 }
 
 #right-now-climacon img {
-  width: 5rem;
-}
-
-#right-now div img {
-  width: 206px;
+  width: 12rem;
 }
 
 #climacon-temp-feelslike {
@@ -244,11 +240,15 @@ footer {
   }
 
   #climacon-temp-feelslike {
-    max-width: 500px;
+    max-width: 400px;
   }
 
   #right-now-climacon {
     width: 150px;
+  }
+
+  #right-now-climacon img {
+    width: 10rem;
   }
 
   #other-conditions {

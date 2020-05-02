@@ -244,6 +244,14 @@ footer {
     max-width: 100%;
   }
 
+  #climacon-temp-feelslike {
+    max-width: 500px;
+  }
+
+  #right-now-climacon {
+    width: 150px;
+  }
+
   #other-conditions {
     max-width: 100%;
     min-height: 250px;

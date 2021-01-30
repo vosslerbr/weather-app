@@ -1,9 +1,9 @@
 :root {
-  --main-bg-color: #121212;
+  --main-bg-color: linear-gradient(to right, #2b5876, #4e4376);
   --component-bg-color: #121212;
   --component-secondary: #303030;
   --white: #f7f7f7;
-  --main-font: 'Open Sans', sans-serif;
+  --main-font: "Open Sans", sans-serif;
   --component-shadow: 3px 3px 15px rgba(0, 0, 0, 0.42);
   --component-highlight: -10px -10px 20px rgba(255, 255, 255, 0.03);
   --main-radius: 25px;
@@ -16,7 +16,7 @@
 body {
   color: var(--white);
   font-family: var(--main-font);
-  background-color: var(--main-bg-color);
+  background: var(--main-bg-color);
   padding: 0 1rem;
 }
 
@@ -25,11 +25,14 @@ main {
   margin: 2rem auto;
 }
 
-header input, button, #current-conditions, #other-conditions, #five-day-outlook {
-  background-color: var(--component-bg-color);
-  box-shadow: var(--component-shadow), var(--component-highlight);
+header input,
+button,
+#current-conditions,
+#other-conditions,
+#five-day-outlook {
   margin-top: 4rem;
   border-radius: var(--main-radius);
+  border: 2px solid var(--white);
 }
 
 header {
@@ -45,6 +48,8 @@ header input {
   font-family: var(--main-font);
   color: var(--white);
   margin-right: 2rem;
+  border: 2px solid var(--white);
+  background: none;
 }
 
 header input:focus {
@@ -58,8 +63,9 @@ button {
   cursor: pointer;
   font-family: var(--main-font);
   font-size: 1rem;
+  background: none;
+  border: 2px solid var(--white);
 }
-
 
 #current-conditions h1 {
   font-size: 2rem;
@@ -68,9 +74,9 @@ button {
 
 span {
   display: block;
-  border: 2px solid #D86161;
-  background-color: #F4DEDE;
-  color: #D86161;
+  border: 2px solid #d86161;
+  background-color: #f4dede;
+  color: #d86161;
   padding: 1rem;
   margin-bottom: 2rem;
   border-radius: var(--main-radius);
@@ -102,18 +108,14 @@ span {
 }
 
 #current-conditions {
-  background-color: var(--component-bg-color);
-  box-shadow: var(--component-shadow), var(--component-highlight);
-  width: 60%;
   max-width: 584px;
   padding: 2rem;
   border-radius: var(--main-radius);
   margin-right: 2rem;
+  width: 60%;
 }
 
 #other-conditions {
-  background-color: var(--component-bg-color);
-  box-shadow: var(--component-shadow), var(--component-highlight);
   width: 40%;
   max-width: 344px;
   padding: 2rem;
@@ -134,7 +136,6 @@ span {
 .other-conditions-section:last-of-type {
   margin-bottom: 0;
 }
-
 
 h2 {
   text-align: center;
@@ -221,7 +222,6 @@ footer {
 }
 
 @media screen and (max-width: 790px) {
-
   header {
     width: 100%;
   }
@@ -230,7 +230,8 @@ footer {
     flex-direction: column;
   }
 
-  #current-conditions, #other-conditions {
+  #current-conditions,
+  #other-conditions {
     width: 100%;
   }
 
@@ -267,5 +268,4 @@ footer {
   .day-container:last-of-type {
     margin-bottom: 0;
   }
-
 }
